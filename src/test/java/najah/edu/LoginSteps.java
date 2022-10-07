@@ -45,7 +45,7 @@ public class LoginSteps {
 
 	@Then("The user should get the message wrong email or password")
 	public void the_user_should_get_the_message_wrong_email_or_paaword() {
-		 System.out.println("wrong email or paaword");
+		// System.out.println("wrong email or password");
 	   
 	}
    

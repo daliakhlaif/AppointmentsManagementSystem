@@ -57,7 +57,7 @@ public class MyApp {
 	    	}
 	    }
 	    
-	   if(!found)System.out.println("wrong email or paaword");
+	   if(!found)System.out.println("wrong email or password");
 	}
 	
 	
