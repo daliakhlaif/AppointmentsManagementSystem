@@ -17,15 +17,15 @@ Scenario: To login with valid email and valid password
 When The user logs in with email "dalia.2001.kh@gmail.com" and password  "dnoife234"
 Then User should navigate to "admin" page
 
-Scenario: To login with valid email and valid password
+Scenario: To login with valid email and invalid password
 When The user logs in with email "dalia.2001.kh@gmail.com" and password  "090890"
-Then User should get the message wrong email or paaword 
+Then The user should get the message wrong email or paaword 
 
-Scenario: To login with valid email and valid password
+Scenario: To login with invalid email and valid password
 When The user logs in with email "dalia.kh@gmail.com" and password  "dnoife234"
 Then The user should get the message wrong email or paaword
 
-Scenario: To login with valid email and valid password
+Scenario: To login with invalid email and invalid password
 When The user logs in with email "dalia.kh@gmail.com" and password  "090890"
 Then The user should get the message wrong email or password
 

@@ -34,19 +34,23 @@ public class LoginSteps {
 	    app.login(email, password);
 		
 	}
+	
+	
 
 	@Then("User should navigate to {string} page")
 	public void user_should_navigate_to_page(String page) {
-	   
+	    app.page(page);
 	    
 	}
 
-	@Then("User should get the message wrong email or paaword")
-	public void user_should_get_the_message_wrong_email_or_paaword() {
+	@Then("The user should get the message wrong email or password")
+	public void the_user_should_get_the_message_wrong_email_or_paaword() {
 		 System.out.println("wrong email or paaword");
 	   
 	}
-
+   
 	
+
+
 
 }

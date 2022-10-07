@@ -6,40 +6,33 @@ import java.util.Scanner;
 public class MyApp {
 	
 	   List<List<String>> usersList;
-	   
-	void admin() {
-		Scanner sc=new Scanner(System.in);
-			
-			System.out.println("\t\t  _________________________");
-			System.out.println("\t\t |                         |");
-			System.out.println("\t\t |       Welcome Admin     |");
-			System.out.println("\t\t |_________________________|");
-	}
+	   void page(String p) {
+		   
+		   if(p.equals("admin")) {
+
+				System.out.println("\t\t  _________________________");
+				System.out.println("\t\t |                         |");
+				System.out.println("\t\t |       Welcome Admin     |");
+				System.out.println("\t\t |_________________________|");
+		   }
+		   else if(p.equals("patient")) {
+			   System.out.println("\t\t  _________________________");
+				System.out.println("\t\t |                         |");
+				System.out.println("\t\t | Welcome to Patient Page!|");
+				System.out.println("\t\t |_________________________|");
+				System.out.println(" ");
+		   }else if(p.equals("doctor")) {
+			   System.out.println("\t\t  _________________________");
+				System.out.println("\t\t |                         |");
+				System.out.println("\t\t | Welcome to Doctor Page! |");
+				System.out.println("\t\t |_________________________|");
+				System.out.println(" ");
+		   }
+		   
+		   
+	   }
 	
 	
-	
-	void patient()
-	{
-	
-			System.out.println("\t\t  _________________________");
-			System.out.println("\t\t |                         |");
-			System.out.println("\t\t | Welcome to Patient Page!|");
-			System.out.println("\t\t |_________________________|");
-			System.out.println(" ");
-		
-		}
-	
-	
-	void doctor()
-	{
-		
-			System.out.println("\t\t  _________________________");
-			System.out.println("\t\t |                         |");
-			System.out.println("\t\t | Welcome to Doctor Page! |");
-			System.out.println("\t\t |_________________________|");
-			System.out.println(" ");
-		
-	}
 	
 	void login(String email, String password)
 	{
@@ -64,24 +57,7 @@ public class MyApp {
 	    	}
 	    }
 	    
-	    String role= null;
-	    if(found) {
-	    	in +=2;
-	    	
-	    	for(List<String> u : usersList) {
-		    	for(String e : u) {
-		    	role =	e.valueOf(in);
-		    	}
-		    }
-	    	
-	    	if(role.equals("admin"))admin();
-	    	else if(role.equals("patient"))patient();
-	    	else if(role == "doctor")doctor();
-	    	
-	    }else {
-	    	System.out.println("wrong email or password");
-	    }
- 		
+	   if(!found)System.out.println("wrong email or paaword");
 	}
 	
 	
