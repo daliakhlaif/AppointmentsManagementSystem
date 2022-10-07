@@ -1,40 +1,59 @@
 package najah.edu;
 
+import java.util.List;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+// to define the steps in the login.feature file (Given, When, Then)
 public class LoginSteps {
+	
+
+	@Given("User opens application and goes to login page")
+	public void user_opens_application_and_goes_to_login_page() {
+	    System.out.println("user on Login page");
+	   
+	}
+
+	@Given("the following users exists:")
+	public void the_following_users_exists(DataTable users) {
+		
+		List<List<String>> userList = users.asLists(String.class);
+	    for(List<String> u : userList) {
+	    	System.out.println(u);
+	    }
+	}
+
+	@When("The user logs in with email {string} and password  {string}")
+	public void the_user_logs_in_with_email_and_password(String email, String password) {
+	    
+		
+	}
+
+	@Then("User should navigate to {string} page")
+	public void user_should_navigate_to_page(String homepage) {
+	    
+	    
+	}
+
+	@Then("User should get the message wrong email or paaword")
+	public void user_should_get_the_message_wrong_email_or_paaword() {
+		 System.out.println("wrong email or paaword");
+	   
+	}
+
+	@Then("The user should get the message wrong email or paaword")
+	public void the_user_should_get_the_message_wrong_email_or_paaword() {
+		 System.out.println("wrong email or paaword");
+	    	}
+
+	@Then("The user should get the message wrong email or password")
+	public void the_user_should_get_the_message_wrong_email_or_password() {
+		 System.out.println("wrong email or paaword");
+	   
+	}
 
 
-@Given("I'm in the login page")
-public void iMInTheLoginPage() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Given("the email field is empty")
-public void theEmailFieldIsEmpty() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Given("the password field is empty")
-public void thePasswordFieldIsEmpty() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@When("I click sign in")
-public void iClickSignIn() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Then("I should stay in the login page")
-public void iShouldStayInTheLoginPage() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-@Then("the message Please enter your email and password should appear")
-public void theMessagePleaseEnterYourEmailAndPasswordShouldAppear() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
+
 }

@@ -1,79 +1,51 @@
-Feature: System Login
+Feature: Test the login functionality
+Background: 
+Given User opens application and goes to login page
+And the following users exists:
 
-@tag
-Scenario: logging in with empty fields 
-Given I'm in the login page 
-And the email field is empty
-And the password field is empty 
-When I click sign in
-Then I should stay in the login page 
-And the message Please enter your email and password should appear
+|         email           |   password   | role    |
+| dalia.2001.kh@gmail.com |  dnoife234   | admin   |
+| masa.34@gmail.com       |  otma@604    | admin   |
+| marah342@gmail.com      |  94802@ors   | admin   | 
+| ali24@gmail.com         |  pdws3499    | patient |
+| alaa09@gmail.com        |  a346@88     | patient |
+| mohammad.22@gmail.com   |  umie89273   | doctor  |
+| sameer@gmail.com        |  so2920k     | doctor  |
+| ola983@gmail.com        |  mdw@09529   | doctor  |
 
-@tag1
-Scenario: logging in with empty email
-Given I'm in the login page 
-And the email field is empty
-And the password field is not empty 
-When I click sign in
-Then I should stay in the login page 
-And the message Please enter your email
+Scenario: To login with valid email and valid password
+When The user logs in with email "dalia.2001.kh@gmail.com" and password  "dnoife234"
+Then User should navigate to "admin" page
 
-@tag2
-Scenario: logging in with empty password
-Given I'm in the login page 
-And the email field is not empty
-And the password field is empty 
-When I click sign in
-Then I should stay in the login page 
-And the message Please enter your password
+Scenario: To login with valid email and valid password
+When The user logs in with email "dalia.2001.kh@gmail.com" and password  "090890"
+Then User should get the message wrong email or paaword 
 
-@tag3
-Scenario Outline: Successful Login
-Given I'm in the login page 
-And the email is <email> 
-And the password is <password>
-When I click sign in
-Then I should go to <status> page
-And the message welcome <status> should appear
+Scenario: To login with valid email and valid password
+When The user logs in with email "dalia.kh@gmail.com" and password  "dnoife234"
+Then The user should get the message wrong email or paaword
+
+Scenario: To login with valid email and valid password
+When The user logs in with email "dalia.kh@gmail.com" and password  "090890"
+Then The user should get the message wrong email or password
+
+  
 
 
-Examples:
-| email | password | status |
-| dalia.2001.kh@gmail.com | dnoife234 | admin |
-| masa.34@gmail.com | otma@604 | admin |
-| marah342@gmail.com | 94802@ors | admin | 
-| ali24@gmail.com | pdws3499 | user |
-
-@tag4
-Scenario Outline: Wrong Email
-Given I'm in the login page 
-And the email is not  <email> 
-And the password is <password>
-When I click sign in
-Then I should stay in login age
-And the message wrong email address or password should appear
 
 
-Examples:
-| email | password | status |
-| dalia.2001.kh@gmail.com | dnoife234 | admin |
-| masa.34@gmail.com | otma@604 | admin |
-| marah342@gmail.com | 94802@ors | admin | 
-| ali24@gmail.com | pdws3499 | user |
-
-@tag5
-Scenario Outline: Wrong Password
-Given I'm in the login page 
-And the email is  <email> 
-And the password is not <password>
-When I click sign in
-Then I should stay in login age
-And the message wrong email address or password should appear
 
 
-Examples:
-| email | password | status |
-| dalia.2001.kh@gmail.com | dnoife234 | admin |
-| masa.34@gmail.com | otma@604 | admin |
-| marah342@gmail.com | 94802@ors | admin | 
-| ali24@gmail.com | pdws3499 | user |
+
+
+
+
+
+
+
+
+
+
+
+
+
