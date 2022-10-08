@@ -34,7 +34,9 @@ When The user logs in with email "dalia.kh@gmail.com" and password  "090890"
 Then The user should get the message wrong email or password
 
   
-
+Scenario: To login with valid email and valid password
+When The user logs in with email "sameer@gmail.com" and password  "so2920k"
+Then User should navigate to "doctor" page
 
 
 
