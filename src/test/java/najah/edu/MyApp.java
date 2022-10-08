@@ -6,6 +6,9 @@ import java.util.Scanner;
 public class MyApp {
 	
 	   List<List<String>> usersList;
+	   String loginE , loginP;
+	   
+	   
 	   void page(String p) {
 		   
 		   if(p.equals("admin")) {
@@ -28,37 +31,30 @@ public class MyApp {
 				System.out.println("\t\t |_________________________|");
 				System.out.println(" ");
 		   }
-		   
-		   
 	   }
 	
-	
-	
-	void login(String email, String password)
-	{
-		
-		System.out.println("\t\t  _________________________");
-		System.out.println("\t\t |                         |");
-		System.out.println("\t\t |         Login 		   |");
-		System.out.println("\t\t |_________________________|");
-
-		
-	   
-	    boolean found = false;
-	    int in =0;
-	    
-	    for(List<String> u : usersList) {
-	    	for(String e : u) {
-	    		if(e.matches(email)) {
-	    			found = true;
-	    			in = e.indexOf(password);
-	    		}
-	    		
-	    	}
-	    }
-	    
-	   if(!found)System.out.println("wrong email or password");
+	void search() {
+	int	in=0;
+		 if(!(loginE.equals(null) && loginP.equals(null))) {
+			   boolean found = false;
+			    int c=0;
+			    for(List<String> u : usersList) {
+			    	for(String e : u) {
+			    		
+			    		if(e.matches(loginE)&&(u.get(c+1) == loginP)) {
+			    			
+			    			found = true;
+			    			
+			    		}
+			    		
+			    	}
+			    	c++;
+			    }
+			    
+			   if(!found)System.out.println("wrong email or password");
+		   }
 	}
+	
 	
 	
 	

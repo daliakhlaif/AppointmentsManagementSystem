@@ -16,7 +16,7 @@ public class LoginSteps {
 	public void user_opens_application_and_goes_to_login_page(){
 		
 	   System.out.println("User in Login page");
-	
+	   
 	}
 
 	@Given("the following users exists:")
@@ -31,7 +31,9 @@ public class LoginSteps {
 
 	@When("The user logs in with email {string} and password  {string}")
 	public void the_user_logs_in_with_email_and_password(String email, String password) {
-	    app.login(email, password);
+	    System.out.println("Email: "+email+" Password: "+password);
+	    app.loginE=email;
+	    app.loginP=password;
 		
 	}
 	
@@ -43,12 +45,22 @@ public class LoginSteps {
 	    
 	}
 
-	@Then("The user should get the message wrong email or password")
-	public void the_user_should_get_the_message_wrong_email_or_paaword() {
-		// System.out.println("wrong email or password");
-	   
+	
+
+	@Then("The user should get the message wrong email or paaword")
+	public void theUserShouldGetTheMessageWrongEmailOrPaaword() {
+	    app.search();
 	}
-   
+
+	
+	@Then("The user should get the message wrong email or password")
+	public void theUserShouldGetTheMessageWrongEmailOrPassword() {
+	   app.search();
+	}
+
+
+
+
 	
 
 
