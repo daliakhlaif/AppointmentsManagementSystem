@@ -34,7 +34,7 @@ public class MyApp {
 	   }
 	
 	void search() {
-	int	in=0;
+
 		 if(!(loginE.equals(null) && loginP.equals(null))) {
 			   boolean found = false;
 			    int c=0;

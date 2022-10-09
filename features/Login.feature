@@ -18,6 +18,10 @@ When The user logs in with email "dalia.2001.kh@gmail.com" and password  "dnoife
 Then User should navigate to "admin" page
 
 Scenario: To login with valid email and valid password
+When The user logs in with email "masa.34@gmail.com" and password  "otma@604"
+Then User should navigate to "admin" page
+
+Scenario: To login with valid email and valid password
 When The user logs in with email "alaa09@gmail.com " and password  "a346@88"
 Then User should navigate to "patient" page
 
@@ -37,7 +41,6 @@ Then The user should get the message wrong email or password
 Scenario: To login with valid email and valid password
 When The user logs in with email "sameer@gmail.com" and password  "so2920k"
 Then User should navigate to "doctor" page
-
 
 
 
