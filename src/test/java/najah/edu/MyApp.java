@@ -5,46 +5,48 @@ import java.util.Scanner;
 
 public class MyApp {
 	
-	   List<List<String>> usersList;
-	   String loginE , loginP;
+	 private  List<List<String>> usersList;
+     private	   String loginE , loginP;
 	   
+	 
+    
 	   
-	   void page(String p) {
-		   
-		   if(p.equals("admin")) {
-
-				System.out.println("\t\t  _________________________");
-				System.out.println("\t\t |                         |");
-				System.out.println("\t\t |       Welcome Admin     |");
-				System.out.println("\t\t |_________________________|");
-		   }
-		   else if(p.equals("patient")) {
-			   System.out.println("\t\t  _________________________");
-				System.out.println("\t\t |                         |");
-				System.out.println("\t\t | Welcome to Patient Page!|");
-				System.out.println("\t\t |_________________________|");
-				System.out.println(" ");
-		   }else if(p.equals("doctor")) {
-			   System.out.println("\t\t  _________________________");
-				System.out.println("\t\t |                         |");
-				System.out.println("\t\t | Welcome to Doctor Page! |");
-				System.out.println("\t\t |_________________________|");
-				System.out.println(" ");
-		   }
+	public  MyApp(List<List<String>> users){
+		   this.usersList = users;
 	   }
 	
-	void search() {
+	public void setLoginE(String e) {
+		this.loginE = e;
+		
+	}
+	   
+	public void setLoginP(String p) {
+		this.loginP = p;
+		
+	}   
+	   
+	public String getLoginE() {
+		return this.loginE;
+	}
+	
+	public String getLoginP() {
+		return this.loginP;
+	}
+	
+	
+	String search() {
+		String em = null;
 
-		 if(!(loginE.equals(null) && loginP.equals(null))) {
+		
 			   boolean found = false;
 			    int c=0;
-			    for(List<String> u : usersList) {
+			     for(List<String> u : usersList) {
 			    	for(String e : u) {
 			    		
 			    		if(e.matches(loginE)&&(u.get(c+1) == loginP)) {
 			    			
 			    			found = true;
-			    			
+			    			em = e; 
 			    		}
 			    		
 			    	}
@@ -52,7 +54,8 @@ public class MyApp {
 			    }
 			    
 			   if(!found)System.out.println("wrong email or password");
-		   }
+		 
+		 return em;
 	}
 	
 	
