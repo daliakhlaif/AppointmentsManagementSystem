@@ -1,5 +1,6 @@
 package najah.edu;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -38,7 +39,7 @@ public class LoginSteps {
 	    app.setLoginE(email);
 	    
 	    app.setLoginP(password);
-		
+	    System.out.println("Email: "+ email+ "  Password " +password);
 	}
 	
 	
@@ -46,7 +47,9 @@ public class LoginSteps {
 	@Then("User should navigate to {string} page")
 	public void user_should_navigate_to_page(String page) {
 	
-	 System.out.println("\t\t  _________________________");
+		assertTrue(app.search() == app.getLoginE());
+		
+	    System.out.println("\t\t  _________________________");
 		System.out.println("\t\t |                         |");
 		System.out.println("\t\t |       Welcome "+ page + "     |");
 		System.out.println("\t\t |_________________________|");
@@ -57,12 +60,14 @@ public class LoginSteps {
 	@Then("The user should get the message wrong email or paaword")
 	public void theUserShouldGetTheMessageWrongEmailOrPaaword() {
 		assertTrue(app.search() != app.getLoginE());
+		System.out.println("Wrong email or password");
 	}
 
 	
 	@Then("The user should get the message wrong email or password")
 	public void theUserShouldGetTheMessageWrongEmailOrPassword() {
 		assertTrue(app.search() != app.getLoginE());
+		System.out.println("Wrong email or password");
 	}
 
 

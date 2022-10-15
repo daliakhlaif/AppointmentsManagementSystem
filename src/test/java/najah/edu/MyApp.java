@@ -35,28 +35,23 @@ public class MyApp {
 	
 	
 	String search() {
-		String em = null;
-
 		
-			   boolean found = false;
-			    int c=0;
-			     for(List<String> u : usersList) {
-			    	for(String e : u) {
-			    		
-			    		if(e.matches(loginE)&&(u.get(c+1) == loginP)) {
-			    			
-			    			found = true;
-			    			em = e; 
-			    		}
-			    		
-			    	}
-			    	c++;
-			    }
-			    
-			   if(!found)System.out.println("wrong email or password");
+			   
+		for(int j=0 ; j < usersList.size(); j++)
+		{
+			for(int i =0; i< usersList.get(j).size() ;i++) {
+				
+				if(usersList.get(j).get(i).equals(loginE) && usersList.get(j).get(i+1).equals(loginP) ) {
+					return loginE;
+				}
+			}
+			
+		}
+			  
 		 
-		 return em;
+		 return null;
 	}
+	
 	
 	
 	
