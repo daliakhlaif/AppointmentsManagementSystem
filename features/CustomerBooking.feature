@@ -62,4 +62,10 @@ Scenario: booking appointment when doctor not availabe
 Scenario: delete an appointment
      Given the user "Maher Amjad" wants to delete his upcoming appointment
      When I click on delete 
-     Then I should get the message "appointmet deleted"     
+     Then I should get the message "appointmet deleted" 
+     
+Scenario: change visit status
+     When the user "Osama Kamal" arrives at the clinic 
+     Then the visits number should be equal to "1" 
+     
+         
