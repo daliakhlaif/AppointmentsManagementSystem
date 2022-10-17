@@ -1,9 +1,9 @@
-Feature: Book An Appointment
+Feature: Customer Booking
 
 Before going to the clinic, patients should book appointments according to their illness at the suitable doctor 
 
 Background:
-Given that the adminstrator is logged in
+Given that the patient is logged in
 And the clinic has the following working days, with the following working hours:
  | day         | working hours  | 
  | Sunday      | 8:00am-6:00pm  | 
@@ -58,26 +58,8 @@ Scenario: booking appointment when doctor not availabe
      And the appointment starts at "9:00am" and ends at "9:30am"
      When I add the appointment to the record
      Then I should get the message "doctor isn't available on this day"
-
+     
 Scenario: delete an appointment
      Given the user "Maher Amjad" wants to delete his upcoming appointment
      When I click on delete 
-     Then I should get the message "appointmet deleted"
-     
-Scenario: search for patient appointment time
-     Given the patient "Maher Amjad" upcoming appointment
-     When I search for this patient  
-     Then I should see the date "10-11-2022"
-     And the start time "5:00pm" , end time "5:20pm"
-     And  the number of visits "1"
-     
-Scenario: view a doctor's appointments list
-     Given the doctor "mohammed"
-     When I search for his upcoming appointments 
-     Then I should see the patient "Maher Amjad" on "10-11-2022"
-     And the start time "5:00pm" , end time "5:20pm" 
-     And the previous visits "1"
- 
-       
-      
-      
+     Then I should get the message "appointmet deleted"     
