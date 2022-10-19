@@ -3,7 +3,7 @@ package najah.edu;
 import java.util.List;
 import java.util.Scanner;
 
-public class MyApp {
+public class Login {
 	
 	 private  List<List<String>> usersList;
      private	   String loginE , loginP;
@@ -11,7 +11,7 @@ public class MyApp {
 	 
     
 	   
-	public  MyApp(List<List<String>> users){
+	public  Login(List<List<String>> users){
 		   this.usersList = users;
 	   }
 	

@@ -12,7 +12,7 @@ And the clinic has the following working days, with the following working hours:
  | Wednesday   | 9:00am-5:00pm  |
  | Thursday    | 9:00am-5:00pm  |
  
- And the each doctor has 1 day not present at the clinic:
+ And the each doctor has a single day not present at the clinic:
  
  | doctor  | day       | 
  | Ali     |  Monday   |

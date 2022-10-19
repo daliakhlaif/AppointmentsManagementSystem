@@ -13,7 +13,7 @@ import io.cucumber.java.en.When;
 public class LoginSteps {
 	
 	
-     MyApp app;
+     Login app;
 
 	@Given("User opens application and goes to login page")
 	public void user_opens_application_and_goes_to_login_page(){
@@ -27,7 +27,7 @@ public class LoginSteps {
 		
 		List<List<String>> userList = users.cells();
 		
-		app = new MyApp(userList);
+		app = new Login(userList);
 		
 		
 	   
@@ -51,7 +51,7 @@ public class LoginSteps {
 		
 	    System.out.println("\t\t  _________________________");
 		System.out.println("\t\t |                         |");
-		System.out.println("\t\t |       Welcome "+ page + "     |");
+		System.out.println("\t\t |   Welcome "+ page +  "  |");
 		System.out.println("\t\t |_________________________|");
 	}
 
