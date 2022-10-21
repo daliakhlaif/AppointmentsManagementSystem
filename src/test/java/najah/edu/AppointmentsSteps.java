@@ -2,6 +2,7 @@ package najah.edu;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
@@ -9,18 +10,42 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 public class AppointmentsSteps {
 
+	Clinic myClinic = new Clinic();
+	
 	@Given("that the adminstrator is logged in")
 	public void that_the_adminstrator_is_logged_in() {
 	   System.out.println("Welcome Admin");
 	}
 
 	@Given("the clinic has the following working days, with the following working hours:")
-	public void the_clinic_has_the_following_working_days_with_the_following_working_hours(DataTable ClinicWorkingTimes) {
+	public void the_clinic_has_the_following_working_days_with_the_following_working_hours(DataTable clinicWorkingTimes) {
+		
+	    myClinic.setWorkingTimes(clinicWorkingTimes.cells());
 	    
 	}
 
 	@Given("the each doctor has {int} day not present at the clinic:")
-	public void the_each_doctor_has_a_single_day_not_present_at_the_clinic( DataTable dayOff) {
+	public void the_clinic_has_the_following_doctors(DataTable doctors) {
+		
+		ArrayList <Doctor> doctor = new ArrayList <Doctor> ();
+		
+		List<List<String>> d = doctors.cells();
+		for(int i=1; i<d.size(); i++) {
+			
+		    Doctor doc = new Doctor();
+		    
+			 for(int j=0 ; j< d.get(i).size() ; j++) {
+				 
+				 switch(j) {
+				 case 1: doc.setName(d.get(i).get(j));break;
+				 case 2: doc.setDayOff(d.get(i).get(j));break;
+				 case 3: doc.setSpecialty(d.get(i).get(j));break;
+				 
+				 }
+			 }
+			 doctor.add(doc);
+		}
+		myClinic.setDoctors(doctor);
 	}
 
 	@Given("the following upcoming appointments exist:")

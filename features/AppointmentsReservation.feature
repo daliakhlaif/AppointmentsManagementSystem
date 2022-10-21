@@ -5,20 +5,19 @@ Before going to the clinic, patients should book appointments according to their
 Background:
 Given that the adminstrator is logged in
 And the clinic has the following working days, with the following working hours:
- | day         | working hours  | 
- | Sunday      | 8:00am-6:00pm  | 
- | Monday      | 8:00am-6:00pm  | 
- | Tuesday     | 9:00am-7:00pm  | 
- | Wednesday   | 9:00am-5:00pm  |
- | Thursday    | 9:00am-5:00pm  |
+ | day         | opens  | closes |
+ | Sunday      | 8:00am | 6:00pm |
+ | Monday      | 8:00am | 6:00pm |
+ | Tuesday     | 9:00am | 7:00pm |
+ | Wednesday   | 9:00am | 5:00pm |
+ | Thursday    | 9:00am | 5:00pm |
  
- And the each doctor has a single day not present at the clinic:
- 
- | doctor  | day       | 
- | Ali     |  Monday   |
- |Mohammed | Tuesday   |
- | Samer   | Wednesday |
- | Eyad    | Thursday  |
+ And the clinic has the following doctors:
+ |id| Name     |  Day-Off  | speciality                  |
+ |1 |  Ali     |  Monday   | Eye & LASIK Surgeries       |
+ |2 | Mohammed | Tuesday   | Corneal surgery and LASIK   |
+ |3 | Samer    | Wednesday | Retinal and vitreous surgery|
+ |4 |  Eyad    | Thursday  | Ophthalmology               |
  
 And the following upcoming appointments exist:
 

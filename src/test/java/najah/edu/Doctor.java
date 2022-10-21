@@ -9,7 +9,7 @@ public class Doctor extends Person {
 	private List<Prescription> prescriptions;
 	private List<Patient> patients;
 	private String specialty;
-	
+	private String dayOff;
 	
 	public Doctor() {
 		this.appointments = new ArrayList<Appointment>();
@@ -61,6 +61,9 @@ public class Doctor extends Person {
 		this.patients = patients;
 	}
 	
+	public void setDayOff(String dayOff) {   // Sets the day-Off for doctor
+		this.dayOff = dayOff;
+	}
 	public String adminToString() {
 		return "Id: " + getId() + " - " + toString();
 	}
