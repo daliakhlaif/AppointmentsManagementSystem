@@ -5,26 +5,35 @@ Before going to the clinic, patients should book appointments according to their
 Background:
 Given that the adminstrator is logged in
 And the clinic has the following working days, with the following working hours:
- | day         | opens  | closes |
- | Sunday      | 8:00am | 6:00pm |
- | Monday      | 8:00am | 6:00pm |
- | Tuesday     | 9:00am | 7:00pm |
- | Wednesday   | 9:00am | 5:00pm |
- | Thursday    | 9:00am | 5:00pm |
+
+ | day         | opens    | closes   |
+ | Sunday      | 08:00 AM | 06:00 PM |
+ | Monday      | 08:00 AM | 06:00 PM |
+ | Tuesday     | 09:00 AM | 07:00 PM |
+ | Wednesday   | 09:00 AM | 05:00 PM |
+ | Thursday    | 09:00 AM | 05:00 PM |
  
  And the clinic has the following doctors:
- |id| Name     |  Day-Off  | speciality                  |
- |1 |  Ali     |  Monday   | Eye & LASIK Surgeries       |
- |2 | Mohammed | Tuesday   | Corneal surgery and LASIK   |
- |3 | Samer    | Wednesday | Retinal and vitreous surgery|
- |4 |  Eyad    | Thursday  | Ophthalmology               |
+ 
+ | Name     |  Day-Off  | speciality                  |
+ |  Ali     |  Monday   | Eye & LASIK Surgeries       |
+ | Mohammed | Tuesday   | Corneal surgery and LASIK   |
+ | Samer    | Wednesday | Retinal and vitreous surgery|
+ |  Eyad    | Thursday  | Ophthalmology               |
+ 
+ And the following patients
+ 
+ |patient_name     |  DOB        | 
+ |Maher Amjad      |  09-04-1990 |
+ |Basema Mohammad  |  13-10-2000 |
+ |Osama Kamal      |  03-09-1980 |
  
 And the following upcoming appointments exist:
 
- | customer_id | customer_name  | appontment_date| start_time | end_time  | doctor   |  previous_visits  | Day |
- | 1           | Maher Amjad    |  10-11-2022    | 5:00pm     |  5:20pm   | mohammed |     1             |  Thursday |
- | 2           | Basema Mohammad|  10-11-2022    | 12:00pm    |  1:00pm   | ali      |     3             |  Thursday|
- | 3           | Osama Kamal    |  13-11-2022    | 12:00pm    |  12:30pm  | samer    |     0             |  Sunday     |
+  | patient_name   | appontment_date| start_time  | end_time   | doctor   |  previous_visits  |  
+  | Maher Amjad    |  10-11-2022    | 05:00 PM    | 05:20 PM   | mohammed |     1             |  
+  | Basema Mohammad|  10-11-2022    | 12:00 PM    | 01:00 PM   | ali      |     3             | 
+  | Osama Kamal    |  13-11-2022    | 12:00 PM    | 12:30 PM   | samer    |     0             |
  
  Scenario: scheduling conflict
       Given the user wants to book an appointment in "10-11-2022" at the doctor "mohammed"

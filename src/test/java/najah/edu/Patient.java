@@ -1,44 +1,48 @@
 package najah.edu;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
+import java.util.Date;
 
 public class Patient extends Person {
 		
-		private Calendar dob;
+		private Date dob;
 		
+		private int visits;
 		
 		private List<Appointment> appointments;
 		
 		
 		private List<Prescription> prescriptions; 
 		
+		private List<Note> notes;
 		
 		private List<Doctor> doctors;
 		
-		/**
-		 * creates patient object
-		 */
+		
 		public Patient() {
 			this.appointments = new ArrayList<Appointment>();
 			this.prescriptions = new ArrayList<Prescription>();
 			this.doctors = new ArrayList<Doctor>();
+			this.notes = new ArrayList<Note>();
+			this.visits = 0;
 		}
 		
 	
 		
-		public Calendar getDOB() {
+		public Date getDOB() {
 			return dob;
 		}
 		
 		
 	
-		public void setDOB(Calendar dob) {
+		public void setDOB(Date dob) {
 			this.dob = dob;
 		}
 		
-		 
+		public int getVisits() {
+			return this.visits;
+		}
 		
 		public List<Appointment> getAppointments() {
 			return appointments;
@@ -88,9 +92,9 @@ public class Patient extends Person {
 		}
 		
 	
-		 // to string method for admin in presentation layer
 		
-		public String adminToString() {
+		
+		/*public String adminToString() {
 			return "Id: " + getId() + " - " + toString();
 		}
 		
@@ -99,6 +103,6 @@ public class Patient extends Person {
 	
 		public String toString() {
 			return "Patient: " + getName() + " - DOB: " + (getDOB().get(2)+1) + "/" +  getDOB().get(5) + "/" + getDOB().get(1);
-		}
+		}*/
 	}
 

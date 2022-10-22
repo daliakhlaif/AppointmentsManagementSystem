@@ -5,18 +5,18 @@ import java.util.List;
 public class Note {
 	    
 	    List<List<String>> patientsnote ;
-	    private String customer_id ,   previous_visits ,  Notes;
+	    private String pID ,   previous_visits ,  Notes;
 	    
 	    
 	    
 	    public  Note(List<List<String>> patientnote){
 			   this.patientsnote = patientnote;
 		   }
-		public String getCustomer_id() {
-			return customer_id;
+		public String getPID() {
+			return this.pID;
 		}
 		public void setCustomer_id(String customer_id) {
-			this.customer_id = customer_id;
+			this.pID = customer_id;
 		}
 		public String getPrevious_visits() {
 			return previous_visits;

@@ -8,6 +8,10 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class AppointmentsSteps {
 
 	Clinic myClinic = new Clinic();
@@ -24,7 +28,7 @@ public class AppointmentsSteps {
 	    
 	}
 
-	@Given("the each doctor has {int} day not present at the clinic:")
+	@Given("the clinic has the following doctors:")
 	public void the_clinic_has_the_following_doctors(DataTable doctors) {
 		
 		ArrayList <Doctor> doctor = new ArrayList <Doctor> ();
@@ -47,10 +51,77 @@ public class AppointmentsSteps {
 		}
 		myClinic.setDoctors(doctor);
 	}
+	
+	@Given("the following patients")
+	public void the_following_patients(DataTable patients) throws ParseException {
+		ArrayList <Patient> pa = new ArrayList <Patient> ();
+		List<List<String>> p = patients.cells();
+	
+		
+         for(int i=1; i<p.size(); i++) {
+			
+		    Patient patient = new Patient();
+		    
+			 for(int j=0 ; j< p.get(i).size() ; j++) {
+				 
+				 switch(j) {
+				 case 1: patient.setName(p.get(i).get(j));break;
+				 case 2:  Date date = new SimpleDateFormat("dd/MM/yyyy").parse(p.get(i).get(j)); 
+				         patient.setDOB(date);
+				         break;
+				 }
+			 }
+			 pa.add(patient);
+		}
+		myClinic.setPatients(pa);
+	}
 
 	@Given("the following upcoming appointments exist:")
 	public void the_following_upcoming_appointments_exist(DataTable appointments) {
-	   
+	     List<List<String>> a = appointments.cells();
+	     
+	   ArrayList <Appointment> appoint = new ArrayList<Appointment>();
+	     
+	     for(int i=1; i< a.size(); i++) {
+				
+			  Appointment app = new Appointment();
+			    
+				 for(int j=0 ; j< a.get(i).size() ; j++) {
+					 
+					 switch(j) {
+					 case 0: {  
+					      app.setAssignedPatient(myClinic.getPatient(a.get(i).get(j)));break;
+					   }
+					 case 1: {
+						 Date date1 = null;
+						try {
+							date1 = new SimpleDateFormat("dd/MM/yyyy").parse(a.get(i).get(j));
+						} catch (ParseException e) {
+							
+							e.printStackTrace();
+						}
+						 app.setAppointmentDate(date1); break;
+						
+					 }
+					 case 2:{
+						 app.setStartTime(a.get(i).get(j));break;
+					 }
+					 
+					 case 3: {
+						 app.setEndTime( a.get(i).get(j));break;
+					 }
+					 
+					 case 4: {
+						app.setAssignedDoctor(myClinic.getDoctor(a.get(i).get(j)));break;
+					 }
+					 }
+					 appoint.add(app);
+				 }
+				 
+			}
+	     myClinic.setAppointments(appoint);
+			
+		
 	}
 
 	@Given("the user wants to book an appointment in {string} at the doctor {string}")
