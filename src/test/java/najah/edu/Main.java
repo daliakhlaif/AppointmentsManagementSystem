@@ -1,5 +1,6 @@
 package najah.edu;
 
+import java.time.DayOfWeek;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -16,7 +17,7 @@ public class Main {
 		 a.setAssignedPatient(p);
 		 Doctor d = new Doctor();
 		 d.setName("Ali");
-		 d.setDayOff("Sunday");
+		 d.setDayOff(DayOfWeek.SUNDAY);
 		 d.setSpecialty("Lasik Surgery");
 		 
 		 a.setAppointmentDate(2022,12, 1);

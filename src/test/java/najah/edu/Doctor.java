@@ -1,5 +1,6 @@
 package najah.edu;
 
+import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ public class Doctor extends Person {
 
 	private List<Patient> patients;
 	private String specialty;
-	private String dayOff;
+	private DayOfWeek dayOff;
 	
 	public Doctor() {
 		this.appointments = new ArrayList<Appointment>();
@@ -40,16 +41,19 @@ public class Doctor extends Person {
 		return patients;
 	}
 	
-	public void addPatient(Patient p) {    //Adds a new patient to doctor 
+	public void addPatient(Patient p) {    
 		patients.add(p);
 	}
 	
-	public void setPatient(List<Patient> patients) {   // Sets patients list for doctor
+	public void setPatient(List<Patient> patients) {   
 		this.patients = patients;
 	}
 	
-	public void setDayOff(String dayOff) {   // Sets the day-Off for doctor
+	public void setDayOff(DayOfWeek dayOff) {   
 		this.dayOff = dayOff;
+	}
+	public DayOfWeek getDayOff() {
+		return this.dayOff;
 	}
 	public String adminToString() {
 		return "Id: " + getId() + " - " + toString();

@@ -47,6 +47,16 @@ Scenario: Booking on Unavailable Day
       Then an error message should appear "this day isn't available"  
       
 Scenario: Booking on Unavailable time
-      Given given the patient "Sara Sameer" wants to book an appointment in "24-12-2022" at the doctor "Ali" , the appointment starts at "07:15" and ends at "08:00"
+      Given given the patient "Sara Sameer" wants to book an appointment in "08-12-2022" at the doctor "Ali" , the appointment starts at "07:15" and ends at "08:00"
       When I add the appointment to the record 
-      Then an error message should appear "this time isn't available"          
+      Then an error message should appear "this time isn't available"    
+      
+Scenario: Booking on Unavailable Doctor Day
+      Given given the patient "Sara Sameer" wants to book an appointment in "24-12-2022" at the doctor "Eyad" , the appointment starts at "07:15" and ends at "08:00"
+      When I add the appointment to the record 
+      Then an error message should appear "Doctor isn't available"            
+
+Scenario: Invalid Date
+      Given given the patient "Sara Sameer" wants to book an appointment in "08-12-2021" at the doctor "Ali" , the appointment starts at "07:15" and ends at "08:00"
+      When I add the appointment to the record 
+      Then an error message should appear "invalid input" 

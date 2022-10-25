@@ -1,6 +1,7 @@
 package najah.edu;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -95,12 +96,15 @@ public class Clinic {
    
     
      public int addAppointment( Appointment app) {
+    	 if(app.getAppointmentDate().isBefore(LocalDate.now()))
+    		 return -1;
     	 if((app.getAppointmentDate().getDayOfWeek() == DayOfWeek.FRIDAY ) || (app.getAppointmentDate().getDayOfWeek() == DayOfWeek.SATURDAY) ) 
     		 return -1;
     	 
     	 if((app.getAppointmentStartTime().isBefore(LocalTime.of(8, 0))) || (app.getAppointmentEndTime().isAfter(LocalTime.of(18, 0))) ) 
     		 return -1;
-    		 
+    	 if(app.getAssignedDoctor().getDayOff().equals(app.getAppointmentDate().getDayOfWeek()))	 
+    		 return -1;
     		 for(Appointment a : appointments) {
     	    		if(a.getAppointmentDate()==app.getAppointmentDate()) {
     	    			if(app.getAppointmentStartTime().isAfter(a.getAppointmentStartTime()) && app.getAppointmentEndTime().isBefore(a.getAppointmentEndTime())) {

@@ -60,7 +60,20 @@ public class AppointmentsSteps {
 				 
 				 switch(j) {
 				 case 0: doc.setName(d.get(i).get(j));break;
-				 case 1: doc.setDayOff(d.get(i).get(j));break;
+				 case 1: {
+					if(d.get(i).get(j).equals("Sunday")) {
+					 doc.setDayOff(DayOfWeek.SUNDAY);
+					 }else if(d.get(i).get(j).equals("Monday")) {
+						 doc.setDayOff(DayOfWeek.MONDAY);
+					 }else if(d.get(i).get(j).equals("Tuesday")) {
+						 doc.setDayOff(DayOfWeek.TUESDAY);
+					 }else if(d.get(i).get(j).equals("Wednesday")) {
+						 doc.setDayOff(DayOfWeek.WEDNESDAY);
+					 }else if(d.get(i).get(j).equals("Thursday")) {
+						 doc.setDayOff(DayOfWeek.THURSDAY);
+					 }
+					
+				 }
 				 case 2: doc.setSpecialty(d.get(i).get(j));break;
 				 
 				 }
@@ -76,7 +89,7 @@ public class AppointmentsSteps {
 	}
 
 	@Given("the following patients")
-	public void the_following_patients(DataTable patients) throws ParseException {
+	public void the_following_patients(DataTable patients){
 		ArrayList <Patient> pa = new ArrayList <Patient> ();
 		List<List<String>> p = patients.cells();
 	
