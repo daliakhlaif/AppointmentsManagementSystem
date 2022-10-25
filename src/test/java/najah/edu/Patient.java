@@ -1,47 +1,52 @@
 package najah.edu;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+
 import java.util.List;
 import java.util.Date;
 
 public class Patient extends Person {
 		
-		private Date dob;
+		private LocalDate dob;
 		
 		private int visits;
 		
-		private List<Appointment> appointments;
+		private ArrayList<Appointment> appointments;
 		
 		
-		private List<Prescription> prescriptions; 
+		private ArrayList<Note> notes;
 		
-		private List<Note> notes;
-		
-		private List<Doctor> doctors;
+		private ArrayList<Doctor> doctors;
 		
 		
 		public Patient() {
+			
 			this.appointments = new ArrayList<Appointment>();
-			this.prescriptions = new ArrayList<Prescription>();
 			this.doctors = new ArrayList<Doctor>();
 			this.notes = new ArrayList<Note>();
 			this.visits = 0;
+			
 		}
-		
 	
 		
-		public Date getDOB() {
+		public LocalDate getDOB() {
 			return dob;
 		}
 		
-		
-	
-		public void setDOB(Date dob) {
-			this.dob = dob;
-		}
+         public void setDOB(int iYear, int iMonth, int iDay) {
+        	 this.dob = LocalDate.of(iYear, iMonth, iDay);
+         }
+         
+        
 		
 		public int getVisits() {
 			return this.visits;
+		}
+		
+		public void setVisits(int v) {
+			 this.visits = v;
 		}
 		
 		public List<Appointment> getAppointments() {
@@ -53,56 +58,30 @@ public class Patient extends Person {
 			appointments.add(a);
 		}
 		
-		public void setAppointments(List<Appointment> appointments) {
+		public void setAppointments(ArrayList<Appointment> appointments) {
 			this.appointments = appointments;
 		}
 		
-		
-		public List<Prescription> getPrescriptions() {
-			return prescriptions;
-		}
-		
-		
-		public void addPrescription(Prescription p) {
-			prescriptions.add(p);
-		}
-
-		
-		public void setPrescription(List<Prescription> prescriptions) {
-			this.prescriptions = prescriptions;
-		}
-
 		
 		public List<Doctor> getDoctors() {
 			return doctors;
 		}
 		
 	
-		// adds new doctor to patient's doctor list
-	
 		public void addDoctor(Doctor d) {
 			doctors.add(d);
 		}
 
 		
-		// sets list of doctors for patient
-		 
-		public void setDoctors(List<Doctor> doctors) {
+		public void setDoctors(ArrayList<Doctor> doctors) {
 			this.doctors = doctors;
 		}
 		
 	
-		
-		
-		/*public String adminToString() {
-			return "Id: " + getId() + " - " + toString();
+		public String toString() {
+			return " Patient name: " +this.getName() + " Previous visits:  "  + this.getVisits() + " Date of Birth: " + this.getDOB() ;
 		}
 		
 		
-		 //default to string method for patient
-	
-		public String toString() {
-			return "Patient: " + getName() + " - DOB: " + (getDOB().get(2)+1) + "/" +  getDOB().get(5) + "/" + getDOB().get(1);
-		}*/
 	}
 

@@ -6,14 +6,13 @@ import java.util.List;
 public class Doctor extends Person {
 	
 	private List<Appointment> appointments;
-	private List<Prescription> prescriptions;
+
 	private List<Patient> patients;
 	private String specialty;
 	private String dayOff;
 	
 	public Doctor() {
 		this.appointments = new ArrayList<Appointment>();
-		this.prescriptions = new ArrayList<Prescription>();
 		this.patients = new ArrayList<Patient>();
 	}
 	
@@ -35,18 +34,6 @@ public class Doctor extends Person {
 	
 	public void setAppointments(List<Appointment> appointments) {
 		this.appointments = appointments;
-	}
-	
-	public List<Prescription> getPrescriptions() {
-		return prescriptions;
-	}
-	
-	public void addPrescription(Prescription p) {
-		prescriptions.add(p);
-	}
-	
-	public void setPrescription(List<Prescription> prescriptions) {
-		this.prescriptions = prescriptions;
 	}
 	
 	public List<Patient> getPatients() {

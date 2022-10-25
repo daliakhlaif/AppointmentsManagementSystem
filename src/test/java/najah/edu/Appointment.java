@@ -1,59 +1,49 @@
 package najah.edu;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Appointment {
 	
 	private int appointmentId;
-	private Date appointmentDate;
+	private LocalDate appointmentDate;
 	private Patient assignedPatient;
 	private Doctor assignedDoctor;
-	private Date startTime, endTime;
-	
-	
+	private LocalTime startOfAppointment ;
+	private LocalTime endOfAppointment ;
 	
 	public int getAppointmentId() {
+		
 		return appointmentId;
 	}
 	
 	
-	public Date getAppointmentDate() {
-		return appointmentDate;
+	public void setStartOfAppointment( int h, int m) {
+		this.startOfAppointment = LocalTime.of(h, m);
 	}
 	
-	public void setStartTime(String time) {
-		try {
-			Date date = new SimpleDateFormat("hh:mm a").parse(time);
-			this.startTime = date;
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
+	public void setEndOfAppointment(int h, int m) {
+		this.endOfAppointment = LocalTime.of(h, m);
 	}
 	
-	public void setEndTime(String time) {
-		try {
-			Date date = new SimpleDateFormat("hh:mm a").parse(time);
-			this.endTime = date;
-		} catch (ParseException e) {
-			
-			e.printStackTrace();
-		}
+	public void setAppointmentDate(int year , int month , int day) {
+		this.appointmentDate = LocalDate.of(year, month, day);
 	}
 	
-	
-	public Date getStartTime() {
-		return this.startTime;
-	}
-	public Date getEndTime() {
-		return this.endTime;
-	}
-	public void setAppointmentDate(Date appointmentDate) {
-		this.appointmentDate = appointmentDate;
+	public LocalDate getAppointmentDate() {
+		return this.appointmentDate;
 	}
 	
+	public LocalTime getAppointmentStartTime() {
+		return this.startOfAppointment;
+	}
+	
+	public LocalTime getAppointmentEndTime() {
+		return this.endOfAppointment;
+	}
 	public Doctor getAssignedDoctor() {
 		return assignedDoctor;
 	}
@@ -71,7 +61,10 @@ public class Appointment {
 		this.assignedPatient = assignedPatient;
 	}
 	
-	/*public String toString() {
-		return "Appointment on " + (getAppointmentDate().get(2)+1) + "/" +  getAppointmentDate().get(5) + "/" + getAppointmentDate().get(1) + " with " + getAssignedDoctor();
-	}*/
+	public String toString() {
+		return " Appointment for: "+ this.getAssignedPatient() + " At the doctor: "+ this.getAssignedDoctor() + " On: "+ this.getAppointmentDate().getDayOfWeek()+" "+this.getAppointmentDate()+" From: "+this.getAppointmentStartTime()+" to: "+this.getAppointmentEndTime();
+	}
+	
+	
+		
 }
