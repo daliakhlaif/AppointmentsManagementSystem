@@ -15,12 +15,11 @@ public class Patient extends Person {
 		
 		private ArrayList<Appointment> appointments;
 		
-		
 		private ArrayList<Note> notes;
 		
 		private ArrayList<Doctor> doctors;
 		
-		
+	
 		public Patient() {
 			
 			this.appointments = new ArrayList<Appointment>();

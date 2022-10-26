@@ -24,10 +24,10 @@ And the following patients
  
 And the following upcoming appointments exist:
 
-  | patient_name   | appontment_date  | doctor   |visits| start_time | end_time |
-  | Maher Amjad    |  10-11-2022      | Mohammed |  1   |  09:00     | 09:20    | 
-  | Basema Mohammad|  08-12-2022      | Ali      |  3   |  12:00     | 13:00    |
-  | Osama Kamal    |  13-11-2022      | Samer    |  0   |  12:00     | 12:30    |
+  | patient_name   | appontment_date  | doctor   | start_time  | end_time |
+  | Maher Amjad    |  10-11-2022      | Mohammed |   09:00     | 09:20    | 
+  | Basema Mohammad|  08-12-2022      | Ali      |   12:00     | 13:00    |
+  | Osama Kamal    |  13-11-2022      | Samer    |   12:00     | 12:30    |
  
  
    

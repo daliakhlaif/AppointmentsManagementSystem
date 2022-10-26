@@ -1,34 +1,33 @@
 package najah.edu;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Note {
 	    
-	    List<List<String>> patientsnote ;
-	    private String pID ,   previous_visits ,  Notes;
+	     private  String text ;
+	     private  Patient assignedPatient;
+	     private int assignedVisitNumber = this.assignedPatient.getVisits() ;
 	    
+	    public void setNoteText(String text) {
+	    	this.text = text;
+	    }
 	    
+	    public String getNoteText(){
+	    	return this.text;
+	    }
 	    
-	    public  Note(List<List<String>> patientnote){
-			   this.patientsnote = patientnote;
-		   }
-		public String getPID() {
-			return this.pID;
-		}
-		public void setCustomer_id(String customer_id) {
-			this.pID = customer_id;
-		}
-		public String getPrevious_visits() {
-			return previous_visits;
-		}
-		public void setPrevious_visits(String previous_visits) {
-			this.previous_visits = previous_visits;
-		}
-		public String getNotes() {
-			return Notes;
-		}
-		public void setNotes(String notes) {
-			Notes = notes;
-		}
+	    public void setAssignedPatient(Patient p) {
+	    	this.assignedPatient = p;
+	    }
+	    
+	    public Patient getAssignedPatient() {
+	    	return this.assignedPatient;
+	    }
+	    
+	    public int getAssignedVisitNumber() {
+	    	return this.assignedVisitNumber;
+	    }
+	    	
 	    
 }

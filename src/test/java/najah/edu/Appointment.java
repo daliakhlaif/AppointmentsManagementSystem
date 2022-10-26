@@ -14,12 +14,27 @@ public class Appointment {
 	private Doctor assignedDoctor;
 	private LocalTime startOfAppointment ;
 	private LocalTime endOfAppointment ;
+	private Boolean visited = false ;
+	
 	
 	public int getAppointmentId() {
 		
 		return appointmentId;
 	}
 	
+	public void setVisited (Boolean v) {
+		
+		if(v == true) {
+			this.getAssignedPatient().setVisits(this.getAssignedPatient().getVisits()+1)  ;
+		}
+		
+		this.visited = v;
+		
+	}
+	
+	public Boolean getVisited() {
+		return this.visited;
+	}
 	
 	public void setStartOfAppointment( int h, int m) {
 		this.startOfAppointment = LocalTime.of(h, m);

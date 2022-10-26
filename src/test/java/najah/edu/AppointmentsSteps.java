@@ -118,7 +118,7 @@ public class AppointmentsSteps {
 	
 	@Given("the following upcoming appointments exist:")
 	public void the_following_upcoming_appointments_exist(DataTable appointments) {
-		String n = null;
+		
 		
 		 List<List<String>> a = appointments.cells();
 	     
@@ -145,13 +145,11 @@ public class AppointmentsSteps {
 							app.setAssignedDoctor(myClinic.getDoctor(a.get(i).get(j)));break;
 						 }
 						 
-						/*case 3: {
-								myClinic.getPatient(n).setVisits(Integer.parseInt(a.get(i).get(j)));
-							 }*/
-						 case 4: {
+						
+						 case 3: {
 								app.setStartOfAppointment(Test.geHours(a.get(i).get(j)), Test.getMin(a.get(i).get(j)));break;
 							 }
-						 case 5: {
+						 case 4: {
 								app.setEndOfAppointment(Test.geHours(a.get(i).get(j)), Test.getMin(a.get(i).get(j)));break;
 							 }
 						 }
