@@ -110,15 +110,16 @@ public class AppointmentsSteps {
 			 pa.add(patient);
 		}
 		myClinic.setPatients(pa);
-	/*	for(Patient p1 : myClinic.getPatients()){
+		for(Patient p1 : myClinic.getPatients()){
 			System.out.println(p1);
-		}*/
+		}
 		
 	}
 	
 	@Given("the following upcoming appointments exist:")
 	public void the_following_upcoming_appointments_exist(DataTable appointments) {
 		String n = null;
+		
 		 List<List<String>> a = appointments.cells();
 	     
 		   ArrayList <Appointment> appoint = new ArrayList<Appointment>();
@@ -126,12 +127,13 @@ public class AppointmentsSteps {
 		     for(int i=1; i< a.size(); i++) {
 					
 				  Appointment app = new Appointment();
+				
 				    
 					 for(int j=0 ; j< a.get(i).size() ; j++) {
 						 
 						 switch(j) {
 						 case 0: {  
-							  n= a.get(i).get(j);
+							
 						      app.setAssignedPatient(myClinic.getPatient(a.get(i).get(j)));break;
 						   }
 						 case 1: {
@@ -153,15 +155,17 @@ public class AppointmentsSteps {
 								app.setEndOfAppointment(Test.geHours(a.get(i).get(j)), Test.getMin(a.get(i).get(j)));break;
 							 }
 						 }
-						 appoint.add(app);
+						 
+						 
 					 }
 					 
+					 appoint.add(app); 
 				}
 		     myClinic.setAppointments(appoint);
-		     
-		    /* for (Appointment a1 : myClinic.getAppointments()) {
+		
+		     for (Appointment a1 : myClinic.getAppointments()) {
 		    	 System.out.println(a1);
-		     }*/
+		     }
 				
 	}
 
@@ -190,21 +194,16 @@ public class AppointmentsSteps {
 	@When("I add the appointment to the record")
 	public void i_add_the_appointment_to_the_record() {
 	  System.out.println("Adding Appointment .... ");
-       
-       
-     /*  for (Appointment a1 : myClinic.getAppointments()) {
-	    	 System.out.println(a1);
-	     }*/
-       
+              
 	}
 
 	@Then("the patient appointment should be booked successfully")
 	public void the_patient_appointment_should_be_booked_successfully() {
 		
 		r = myClinic.addAppointment(a);
-		System.out.println(r);
+	//	System.out.println(r);
 	    assertTrue(" Appointment Booked ", r == 1);
-	  // System.out.println(a);
+	    System.out.println(a);
 	   
 	    
 	}
@@ -212,10 +211,13 @@ public class AppointmentsSteps {
 	@Then("an error message should appear")
 	public void an_error_message_should_appear() {
 		r = myClinic.addAppointment(a);
-		System.out.println(r);
+	//	System.out.println(r);
+		
 		for (Appointment a1 : myClinic.getAppointments()) {
+			
 	    	 System.out.println(a1);
 	     }
+		
 	    assertTrue("Choose another time",r == -1 );
 	    
 	}
