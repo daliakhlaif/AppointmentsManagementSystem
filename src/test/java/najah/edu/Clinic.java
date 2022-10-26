@@ -96,8 +96,10 @@ public class Clinic {
    
     
      public int addAppointment( Appointment app) {
+    	 
     	 if(app.getAppointmentDate().isBefore(LocalDate.now()))
     		 return -1;
+    	 
     	 if((app.getAppointmentDate().getDayOfWeek() == DayOfWeek.FRIDAY ) || (app.getAppointmentDate().getDayOfWeek() == DayOfWeek.SATURDAY) ) 
     		 return -1;
     	 
@@ -105,16 +107,21 @@ public class Clinic {
     		 return -1;
     	 if(app.getAssignedDoctor().getDayOff().equals(app.getAppointmentDate().getDayOfWeek()))	 
     		 return -1;
+    	 
     		 for(Appointment a : appointments) {
-    	    		if(a.getAppointmentDate()==app.getAppointmentDate()) {
-    	    			if(app.getAppointmentStartTime().isAfter(a.getAppointmentStartTime()) && app.getAppointmentEndTime().isBefore(a.getAppointmentEndTime())) {
+    			 
+    	    		if(a.getAppointmentDate().isEqual(app.getAppointmentDate()) ) {
+    	    			if(app.getAppointmentStartTime().isAfter(a.getAppointmentStartTime()) && app.getAppointmentStartTime().isBefore(a.getAppointmentEndTime())) {
+    	    				//System.out.println("wrong t1");
     	    				return -1;
     	    			}else if(app.getAppointmentStartTime().isBefore(a.getAppointmentStartTime()) && app.getAppointmentEndTime().isAfter(a.getAppointmentStartTime())){
+    	    				//System.out.println("wrong t2");
     	    				return -1;
     	    			}else if(app.getAppointmentStartTime().isBefore(a.getAppointmentEndTime()) && app.getAppointmentEndTime().isAfter(a.getAppointmentEndTime())){
+    	    				//System.out.println("wrong t3");
     	    				return -1;
     	    			}
-    	    			
+    	    			//System.out.println("Same date");
     	    		}
     	    	}
     	    	 this.appointments.add(app);

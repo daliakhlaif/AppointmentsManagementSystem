@@ -24,10 +24,10 @@ And the following patients
  
 And the following upcoming appointments exist:
 
-  | patient_name   | appontment_date  | doctor   |  previous_visits  | start_time | end_time |
-  | Maher Amjad    |  10-11-2022      | Mohammed |     1             |  17:00     | 17:20    | 
-  | Basema Mohammad|  10-11-2022      | Ali      |     3             |  12:00     | 13:00    |
-  | Osama Kamal    |  13-11-2022      | Samer    |     0             |  12:00     | 12:30    |
+  | patient_name   | appontment_date  | doctor   |visits| start_time | end_time |
+  | Maher Amjad    |  10-11-2022      | Mohammed |  1   |  09:00     | 09:20    | 
+  | Basema Mohammad|  08-12-2022      | Ali      |  3   |  12:00     | 13:00    |
+  | Osama Kamal    |  13-11-2022      | Samer    |  0   |  12:00     | 12:30    |
  
  
    
@@ -37,7 +37,7 @@ Scenario: Booking Appointment Successfully
       Then the patient appointment should be booked successfully
  
 Scenario: Schedueling Conflict
-      Given given the patient "Sara Sameer" wants to book an appointment in "08-12-2022" at the doctor "Ali" , the appointment starts at "12:15" and ends at "12:30"
+      Given given the patient "Sara Sameer" wants to book an appointment in "10-11-2022" at the doctor "Mohammed" , the appointment starts at "09:15" and ends at "09:30"
       When I add the appointment to the record 
       Then an error message should appear  
 
@@ -60,3 +60,14 @@ Scenario: Invalid Date
       Given given the patient "Sara Sameer" wants to book an appointment in "08-12-2021" at the doctor "Ali" , the appointment starts at "07:15" and ends at "08:00"
       When I add the appointment to the record 
       Then an error message should appear "invalid input" 
+
+Scenario: Schedueling Conflict
+      Given given the patient "Sara Sameer" wants to book an appointment in "10-11-2022" at the doctor "Mohammed" , the appointment starts at "08:50" and ends at "09:10"
+      When I add the appointment to the record 
+      Then an error message should appear 
+      
+ Scenario: Schedueling Conflict
+      Given given the patient "Sara Sameer" wants to book an appointment in "10-11-2022" at the doctor "Mohammed" , the appointment starts at "09:10" and ends at "09:30"
+      When I add the appointment to the record 
+      Then an error message should appear          
+

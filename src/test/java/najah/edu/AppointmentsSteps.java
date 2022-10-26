@@ -1,5 +1,5 @@
 package najah.edu;
-import static org.junit.Assert.assertFalse;
+
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -8,9 +8,6 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import java.util.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 
 public class AppointmentsSteps {
@@ -82,10 +79,10 @@ public class AppointmentsSteps {
 		}
 		myClinic.setDoctors(doctor);
 		
-		for(Doctor d1 : myClinic.getDoctors()){
+		/*for(Doctor d1 : myClinic.getDoctors()){
 			System.out.println(d1);
 		}
-			
+			*/
 	}
 
 	@Given("the following patients")
@@ -113,9 +110,9 @@ public class AppointmentsSteps {
 			 pa.add(patient);
 		}
 		myClinic.setPatients(pa);
-		for(Patient p1 : myClinic.getPatients()){
+	/*	for(Patient p1 : myClinic.getPatients()){
 			System.out.println(p1);
-		}
+		}*/
 		
 	}
 	
@@ -146,8 +143,8 @@ public class AppointmentsSteps {
 							app.setAssignedDoctor(myClinic.getDoctor(a.get(i).get(j)));break;
 						 }
 						 
-						/* case 3: {
-								myClinic.getPatient(n).setVisits(Integer.parseInt(a.get(i).get(j),0,0,10));
+						/*case 3: {
+								myClinic.getPatient(n).setVisits(Integer.parseInt(a.get(i).get(j)));
 							 }*/
 						 case 4: {
 								app.setStartOfAppointment(Test.geHours(a.get(i).get(j)), Test.getMin(a.get(i).get(j)));break;
@@ -162,9 +159,9 @@ public class AppointmentsSteps {
 				}
 		     myClinic.setAppointments(appoint);
 		     
-		     for (Appointment a1 : myClinic.getAppointments()) {
+		    /* for (Appointment a1 : myClinic.getAppointments()) {
 		    	 System.out.println(a1);
-		     }
+		     }*/
 				
 	}
 
@@ -173,9 +170,6 @@ public class AppointmentsSteps {
 	@Given("given the patient {string} wants to book an appointment in {string} at the doctor {string} , the appointment starts at {string} and ends at {string}")
 	public void given_the_patient_wants_to_book_an_appointment_in_at_the_doctor_the_appointment_starts_at_and_ends_at(String name, String date, String dname, String startTime, String endTime) {
         
-        
-      //  System.out.println(name);
-      //  System.out.println(dname); 
  
 		a.setAppointmentDate(Test.getYear(date),Test.getMonth(date),Test.getDay(date));
 		a.setStartOfAppointment(Test.geHours(startTime), Test.getMin(startTime));
@@ -196,33 +190,38 @@ public class AppointmentsSteps {
 	@When("I add the appointment to the record")
 	public void i_add_the_appointment_to_the_record() {
 	  System.out.println("Adding Appointment .... ");
-       r = myClinic.addAppointment(a);
-       for(Appointment a2 : p.getAppointments()) {
-	    	System.out.println(a2);
-	    }
        
-       for (Appointment a1 : myClinic.getAppointments()) {
+       
+     /*  for (Appointment a1 : myClinic.getAppointments()) {
 	    	 System.out.println(a1);
-	     }
+	     }*/
        
 	}
 
 	@Then("the patient appointment should be booked successfully")
 	public void the_patient_appointment_should_be_booked_successfully() {
+		
+		r = myClinic.addAppointment(a);
 		System.out.println(r);
 	    assertTrue(" Appointment Booked ", r == 1);
-	  //  System.out.println(a);
+	  // System.out.println(a);
 	   
 	    
 	}
 	
 	@Then("an error message should appear")
 	public void an_error_message_should_appear() {
+		r = myClinic.addAppointment(a);
 		System.out.println(r);
-	    assertFalse("Choose another time",r !=1 );
+		for (Appointment a1 : myClinic.getAppointments()) {
+	    	 System.out.println(a1);
+	     }
+	    assertTrue("Choose another time",r == -1 );
+	    
 	}
 	@Then("an error message should appear {string}")
 	public void an_error_message_should_appear(String string) {
+		r = myClinic.addAppointment(a);
 		System.out.println(r);
 		assertTrue(string ,r == -1 );
 	}
