@@ -16,7 +16,21 @@ public class Clinic {
    private LocalTime open;
    private LocalTime close;
    private ArrayList<Note> notes;
+   private ArrayList<Service> services;
    
+   
+   
+    public void setServices(ArrayList<Service> services) {
+    	this.services = services;
+    }
+    
+    public ArrayList<Service> getServices() {
+    	return this.services;
+    }
+    public void addService(Service service) {
+    	this.services.add(service);
+    }
+    
     public void setNotes(ArrayList<Note> notes) {
     	this.notes = notes;
 
