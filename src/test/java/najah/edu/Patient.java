@@ -19,6 +19,7 @@ public class Patient extends Person {
 		
 		private ArrayList<Doctor> doctors;
 		
+		private Registration associatedReg ;
 	
 		public Patient() {
 			

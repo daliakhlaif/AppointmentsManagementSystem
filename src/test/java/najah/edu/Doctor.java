@@ -11,6 +11,7 @@ public class Doctor extends Person {
 	private List<Patient> patients;
 	private String specialty;
 	private DayOfWeek dayOff;
+	private Registration associatedReg ;
 	
 	public Doctor() {
 		this.appointments = new ArrayList<Appointment>();

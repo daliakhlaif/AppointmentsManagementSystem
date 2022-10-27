@@ -51,7 +51,7 @@ public class LoginSteps {
 		
 	    System.out.println("\t\t  _________________________");
 		System.out.println("\t\t |                         |");
-		System.out.println("\t\t |   Welcome "+ page +  "  |");
+		System.out.println("\t\t |   Welcome "+ page+"     | ");
 		System.out.println("\t\t |_________________________|");
 	}
 

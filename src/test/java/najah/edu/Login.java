@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Login {
 	
 	 private  List<List<String>> usersList;
-     private	   String loginE , loginP;
+     private String loginE , loginP;
 	   
 	 
     
