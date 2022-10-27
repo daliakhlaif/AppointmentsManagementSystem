@@ -3,23 +3,27 @@ package najah.edu;
 import java.util.ArrayList;
 
 // such as surgeries, examinations.. etc
-public class MedicalService {
+public class MedicalService extends Service{
 
-	private ArrayList<Doctor> assignedDoctors;
+	private Doctor assignedDoctor;
 	private String descreption;
 	
 	
-	public void setAssignedDoctors(ArrayList<Doctor> assignedDoctors) {
-		this.assignedDoctors = assignedDoctors;
+	public void setAssignedDoctor(Doctor assignedDoctor) {
+		this.assignedDoctor = assignedDoctor;
 	}
-	public ArrayList<Doctor> getAssignedDoctors(){
-		return this.assignedDoctors;
+	public Doctor getAssignedDoctor(){
+		return this.assignedDoctor;
 	}
 	public void setDescreption(String descreption) {
 		this.descreption = descreption ;
 	}
 	public String getDescreption() {
 		return this.descreption;
+	}
+	
+	public String toString() {
+		return this.getName() +" price: " + this.getPrice()+ " "+this.getAssignedDoctor() + " Descreption: "+this.getDescreption();
 	}
 	
 }

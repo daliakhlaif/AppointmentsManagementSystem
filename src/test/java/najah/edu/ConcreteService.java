@@ -20,4 +20,7 @@ public class ConcreteService extends Service {
 	public int getQuantity() {
 		return this.quantity;
 	}
+	public String toString() {
+		return this.getName()+ this.getPrice() + " Provider: "+this.provider+" Quantity: "+this.getQuantity();
+	}
 }

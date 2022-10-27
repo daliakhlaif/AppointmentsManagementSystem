@@ -20,4 +20,7 @@ public class Service {
 		return this.price;
 	}
 	
+	public String toString() {
+		return "Service name : " + this.getName() + " price: "+ this.getPrice();
+	}
 }

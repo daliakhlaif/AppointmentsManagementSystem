@@ -19,7 +19,7 @@ public class Clinic {
    private ArrayList<Service> services;
    
    
-   
+  
     public void setServices(ArrayList<Service> services) {
     	this.services = services;
     }
@@ -27,10 +27,25 @@ public class Clinic {
     public ArrayList<Service> getServices() {
     	return this.services;
     }
-    public void addService(Service service) {
-    	this.services.add(service);
-    }
     
+    public Boolean serviceExist(String name) {
+    	for(Service s : this.getServices()) {
+    		if(s.getName().equalsIgnoreCase(name)) {
+    			return true;
+    		}
+    	}
+		return false;
+    	
+    }
+    public void addService(Service service) {
+    	if(!this.serviceExist(service.getName())) {
+    		this.getServices().add(service);
+    	}
+             	
+    }
+  
+    
+   
     public void setNotes(ArrayList<Note> notes) {
     	this.notes = notes;
 
