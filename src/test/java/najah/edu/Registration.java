@@ -9,7 +9,7 @@ public class Registration {
     private String email;
     private int phoneNo;
 	private String address;
-	private int status;
+	private int status;  
 	
     public String getFirstName() {
         return this.firstName;

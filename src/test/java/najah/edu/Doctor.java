@@ -59,7 +59,12 @@ public class Doctor extends Person {
 	public String adminToString() {
 		return "Id: " + getId() + " - " + toString();
 	}
-	
+	public void setAssociatedReg(Registration reg) {
+		this.associatedReg = reg;
+	}
+	public Registration getAssociatedReg() {
+		return this.associatedReg;
+	}
 	public String toString() {
 		return "Name: " + getName() + " - Specialty: " + getSpecialty();
 	}

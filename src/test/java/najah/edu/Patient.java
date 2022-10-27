@@ -77,7 +77,12 @@ public class Patient extends Person {
 			this.doctors = doctors;
 		}
 		
-	
+		public void setAssociatedReg(Registration reg) {
+			this.associatedReg = reg;
+		}
+		public Registration getAssociatedReg() {
+			return this.associatedReg;
+		}
 		public String toString() {
 			return " Patient name: " +this.getName() + " Previous visits:  "  + this.getVisits() + " Date of Birth: " + this.getDOB() ;
 		}
