@@ -18,8 +18,27 @@ public class Clinic {
    private ArrayList<Note> notes;
    private ArrayList<Service> services;
    
-   
-  
+   public Service getServiceByName(String name) {
+   	if(this.serviceExist(name)) {
+   		for(Service s: this.getServices()) {
+   			if(s.getName().equals(name))
+   				return s;
+   		}
+   	}
+   	return null;
+   }
+    public void deleteService(String name) {
+    	if(this.serviceExist(name)) {
+    	for(int i=0; i< this.getServices().size() ; i++) {
+            if(this.getServices().get(i).getName().equals(name)) {
+            
+    			this.getServices().remove(i);
+    		}
+    	}
+    	
+    	}
+    }
+    
     public void setServices(ArrayList<Service> services) {
     	this.services = services;
     }
@@ -27,6 +46,10 @@ public class Clinic {
     public ArrayList<Service> getServices() {
     	return this.services;
     }
+    
+    
+
+    
     
     public Boolean serviceExist(String name) {
     	for(Service s : this.getServices()) {

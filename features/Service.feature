@@ -3,7 +3,7 @@ Feature: Add service
         
 Background:
    Given that the administrator is logged in
-   And the clinic offers the following services:
+    And the clinic offers the following services:
    | Service Name            |  Doctor            | price | description |
    | Laser Surgery           |  Ali               |  2000 |  none       |
    | Eye Examamination       |  Mohammed          |  50   |  none       | 
@@ -37,3 +37,22 @@ Scenario: Add a service that is already added
  	When I add the service to the system
  	Then the medical service isn't contained in the system
  	
+ Scenario: Delete a service successfully
+    Given there is a sevice called  "Laser Surgery" ,doctor "Ali" and price "2000"
+ 	When I delete the service from the system
+ 	Then the medical service should be removed	
+ 	
+Scenario: Delete a service that doesn't exist 
+ 	Given there is a sevice called  "sunglasses" , provider  "Linda Farrow" and price "250"
+ 	When I delete the service from the system
+ 	Then I should get the message error 	
+ 	
+Scenario: Edit service's provider
+ 	Given there is a sevice called  "Eyeglasses" , provider  "Linda Farrow" and price "200"
+ 	When I edit the service provider to "Channel"
+ 	Then the service provider should be editted to "Channel" 	
+ 	
+Scenario: Edit service's price
+ 	Given there is a sevice called  "Eyeglasses" , provider  "Linda Farrow" and price "200"
+ 	When I edit the price to "300"
+ 	Then the price should be editted to "300" 	

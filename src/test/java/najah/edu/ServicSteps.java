@@ -11,10 +11,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AddServicSteps {
+public class ServicSteps {
     Clinic myClinic = new Clinic();
     ConcreteService s = new ConcreteService();
     MedicalService ms = new MedicalService();
+    Service gs; 
     
 	@Given("that the administrator is logged in")
 	public void that_the_administrator_is_logged_in() {
@@ -98,6 +99,7 @@ public class AddServicSteps {
 		
 		System.out.println();
 		System.out.println("given the service   : " + s);
+		gs = s;
 		
 	}
 	
@@ -129,6 +131,7 @@ public class AddServicSteps {
 	    d.setName(name);
 	    ms.setAssignedDoctor(d);
 	    ms.setPrice(Double.parseDouble(price));
+	    gs = ms;
 	}
 	
 	@Then("the medical service is contained in the system")
@@ -137,6 +140,7 @@ public class AddServicSteps {
 		myClinic.addService(ms);
 		for(Service ser : myClinic.getServices() )
 			System.out.println(ser);
+	
 		 assertTrue(myClinic.serviceExist(ms.getName()));
 	    System.out.println("_____________________________________________________________________________");
 
@@ -174,5 +178,42 @@ public class AddServicSteps {
 		
 	    
 
+	}
+	
+	@When("I delete the service from the system")
+	public void i_delete_the_service_from_the_system() {
+	    
+	}
+    
+	@Then("the medical service should be removed")
+	public void the_medical_service_should_be_removed() {
+	    myClinic.deleteService(gs.getName());
+	    assertTrue(!myClinic.serviceExist(gs.getName()));
+	}
+	@Then("I should get the message error")
+	public void i_should_get_the_message_error() {
+	     myClinic.deleteService(gs.getName());
+	     assertTrue(!myClinic.serviceExist(gs.getName()));
+	}
+
+	@When("I edit the service provider to {string}")
+	public void i_edit_the_service_provider_to(String com) {
+		myClinic.deleteService(s.getName());
+	   s.setProvider(com);
+	   
+	   myClinic.addService(s);
+	}
+	
+	@Then("the service provider should be editted to {string}")
+	public void the_service_provider_should_be_editted_to(String company) {
+	  assertTrue(s.getProvider().equals(company));
+	}
+	@When("I edit the price to {string}")
+	public void i_edit_the_price_to(String price) {
+		myClinic.getServiceByName(s.getName()).setPrice(Double.parseDouble(price));
+	}
+	@Then("the price should be editted to {string}")
+	public void the_price_should_be_editted_to(String price) {
+	    assertTrue(myClinic.getServiceByName(s.getName()).getPrice()== Double.parseDouble(price));
 	}
 }
