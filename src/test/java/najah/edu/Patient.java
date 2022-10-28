@@ -29,7 +29,7 @@ public class Patient extends Person {
 			this.visits = 0;
 			
 		}
-	
+		
 		
 		public LocalDate getDOB() {
 			return dob;
@@ -39,7 +39,6 @@ public class Patient extends Person {
         	 this.dob = LocalDate.of(iYear, iMonth, iDay);
          }
          
-        
 		
 		public int getVisits() {
 			return this.visits;
@@ -83,8 +82,9 @@ public class Patient extends Person {
 		public Registration getAssociatedReg() {
 			return this.associatedReg;
 		}
+		
 		public String toString() {
-			return " Patient name: " +this.getName() + " Previous visits:  "  + this.getVisits() + " Date of Birth: " + this.getDOB() ;
+			return " Patient name: " +this.getName() + " Previous visits:  "  + this.getVisits() + " Date of Birth: " + this.getDOB() + this.getClass() ;
 		}
 		
 		

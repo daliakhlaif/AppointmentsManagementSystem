@@ -1,31 +1,18 @@
 package najah.edu;
 
-public class Registration {
+import java.util.regex.Pattern;
 
-	private String firstName;
-    private String lastName;
+public class Registration extends Person {
+
+	
+    
     private String userName;
     private String password;
     private String email;
-    private int phoneNo;
-	private String address;
 	private int status;  
 	
-    public String getFirstName() {
-        return this.firstName;
-    }
-    
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    
-    public String getLastName() {
-        return lastName;
-    }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-    
+	
+     
     public String getUserName() {
         return userName;
     }
@@ -46,31 +33,45 @@ public class Registration {
         return this.email;
     }
     
-    public int getPhoneNo() {
-        return this.phoneNo;
-    }
-    public void setPhoneNo(int phoneNo) {
-        this.phoneNo = phoneNo;
-    }
-    
-    public void setAddress(String address) {
-    	this.address = address;
-    }
-    public String getAddress() {
-    	return this.address;
-    }
+    public void setEmail(String e) {
+    	
+    	if ( this.checkemail(e) == true ){
+    		this.email = e;
+    	}else this.email = null;
+	}
     
     public int getStatus() {
         return this.status;
     }
+    
     public void setStatus(int status) {
         this.status = status;
     }
+    
    
-    @Override
+    public boolean checkemail(String mail)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                            "[a-zA-Z0-9_+&*-]+)*@" +
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                            "A-Z]{2,7}$";
+                              
+        Pattern pat = Pattern.compile(emailRegex);
+        if (mail == null)
+            return false;
+        else {
+        	if(pat.matcher(mail).matches())
+        	return true;
+        	else 
+        		return false;
+        }
+    }
+    
+    
+     @Override
     public String toString() {
-        return " [ firstName=" + this.firstName + ", lastName=" + this.lastName + ", userName=" + this.userName + ", password=" +
-          this.password + ", emailId=" + this.email + ", phoneNo=" + this.phoneNo +" Address= "+ this.address+" ]";
+        return super.toString()+ "userName = " + this.userName + ", password = " +
+          this.password + ", emailId =" + this.email ;
     }
     
 }

@@ -1,52 +1,47 @@
 package najah.edu;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Login {
 	
-	 private  List<List<String>> usersList;
-     private String loginE , loginP;
+	 private  ArrayList <Registration> usersList;
+     private String logU , logP;
 	   
 	 
-    
-	   
-	public  Login(List<List<String>> users){
+   
+	public void Login(ArrayList<Registration> users){
 		   this.usersList = users;
-	   }
+	 }
 	
-	public void setLoginE(String e) {
-		this.loginE = e;
+	public ArrayList<Registration> Login(){
+		 return this.usersList ;
+	 }
+
+	public void setLogU(String u) {
+		this.logU = u;
 		
 	}
 	   
-	public void setLoginP(String p) {
-		this.loginP = p;
+	public void setLogP(String p) {
+		this.logP = p;
 		
 	}   
 	   
-	public String getLoginE() {
-		return this.loginE;
+	public String getLogU() {
+		return this.logU;
 	}
 	
-	public String getLoginP() {
-		return this.loginP;
+	public String getLogP() {
+		return this.logP;
 	}
 	
 	
-	String search() {
+	public boolean  loginResult() {
 		
-			   
-		for(int j=0 ; j < usersList.size(); j++)
-		{
-			for(int i =0; i< usersList.get(j).size() ;i++) {
-				
-				if(usersList.get(j).get(i).equals(loginE) && usersList.get(j).get(i+1).equals(loginP) ) {
-					return loginE;
-				}
-			}
-			
-		}
+		
+		
 			  
 		 
 		 return null;
