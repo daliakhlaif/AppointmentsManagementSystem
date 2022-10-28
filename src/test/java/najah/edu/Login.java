@@ -11,11 +11,11 @@ public class Login {
 	   
 	 
    
-	public void Login(ArrayList<Registration> users){
+	public void setusersList(ArrayList<Registration> users){
 		   this.usersList = users;
 	 }
 	
-	public ArrayList<Registration> Login(){
+	public ArrayList<Registration> getusersList(){
 		 return this.usersList ;
 	 }
 
@@ -38,16 +38,23 @@ public class Login {
 	}
 	
 	
-	public boolean  loginResult() {
+	public Registration loginResult() {
 		
-		
-		
-			  
-		 
+		  for(int i=0; i< this.usersList.size(); i++) 
+			  if(this.getLogU().equals(this.usersList.get(i).getUserName()) && this.getLogP().equals(this.usersList.get(i).getPassword())) 
+				  return this.usersList.get(i);  
+	
 		 return null;
 	}
 	
+	public int loginResultPage() {
+		
+		  if(this.loginResult() != null) 
+			  return this.loginResult().getStatus();
+		  
 	
+		 return -1;
+	}
 	
 	
 	
