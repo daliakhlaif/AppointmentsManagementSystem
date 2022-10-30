@@ -14,7 +14,7 @@ public class Person {
 	private String address;
 	private String gender ;	
 	
-    private long phoneNo;
+    private String phoneNo;
     
 	public int getId() {
 		return id;
@@ -44,13 +44,13 @@ public class Person {
 		//this.name = this.getFirstName() + this.getLastName();
 	}
 	    
-	    public long getPhoneNo() {
+	    public String getPhoneNo() {
 	        return this.phoneNo;
 	    }
 	    
 	    public void setPhone(String phone) {
 	    	if(Person.isValidPhone(phone))
-	        this.phoneNo = Integer.parseInt(phone);
+	        this.phoneNo = phone;
 	    }
 	    
 	    public void setAddress(String address) {
@@ -73,9 +73,9 @@ public class Person {
 	
 	    public static boolean isValidPhone(String s)
 	    {
-	        Pattern p = Pattern.compile("^\\d{10}$");
-	
-	          java.util.regex.Matcher m = p.matcher(s);
-	        return (m.matches());
+	      if(s.length()== 10)
+	    	  return true;
+	      else return false;
+	        
 	    }
 }

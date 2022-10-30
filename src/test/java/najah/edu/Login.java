@@ -57,5 +57,8 @@ public class Login {
 	}
 	
 	
-	
+	public void logout() {
+		this.logP = null;
+		this.logU = null;
+	}
 }

@@ -29,8 +29,17 @@ public class Patient extends Person {
 			this.visits = 0;
 			
 		}
+		public void setNotes(ArrayList <Note> notes) {
+			this.notes = notes;
+		}
 		
+		public ArrayList <Note> getNotes() {
+			return this.notes;
+		}
 		
+		public void addNote(Note note) {
+			this.getNotes().add(note);
+		}
 		public LocalDate getDOB() {
 			return dob;
 		}

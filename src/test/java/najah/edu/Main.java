@@ -11,19 +11,35 @@ import java.util.TimeZone;
 import io.cucumber.java.bs.A;
 
 public class Main {
-    
-    
 	
-	public static void main(String[] args) {
+	public void addData() {
+		ArrayList<Patient> patients = new ArrayList<Patient>();
+		ArrayList<Registration> regs = new ArrayList<Registration>();
+		
 		Registration ad = new Registration();
 		ad.setAddress("Qalqiliah");ad.setFirstName("Dalia");ad.setEmail("dalia.2001.kh@gmail.com");ad.setGender("F");ad.setLastName("Khlaif");ad.setPassword("dalia123");ad.setStatus(0);ad.setPhone("0598520232");
-		ad.setUserName("daliakh");
+		ad.setUserName("daliakh");regs.add(ad);
+		
+		ad.setFirstName("Hala");ad.setLastName("Ayman");ad.setEmail("halaayman.98@gmail.com");ad.setPassword("096545567");ad.setGender("F");ad.setAddress("Nablus");ad.setStatus(2);ad.setPhone("086585908");
+		ad.setUserName("hala55");regs.add(ad);
+		Patient p = new Patient();p.setDOB(2000, 10, 20);p.setName(p.getAssociatedReg().getFirstName()+p.getAssociatedReg().getLastName());
+		p.setAssociatedReg(ad);
+		
+		ad.setFirstName("Ahmad");ad.setLastName("Salah");ad.setEmail("halaayman.98@gmail.com");ad.setPassword("096545567");ad.setGender("F");ad.setAddress("Nablus");ad.setStatus(2);ad.setPhone("086585908");
+		ad.setUserName("hala55");regs.add(ad);
+		
+		
+	
+		
+		
+	}
+    
+	public static void main(String[] args) {
 		
 		
 		
 		
-		
-		
+		Login log = new Login();
 		Scanner s = new Scanner(System.in);
 		int choice;
 		
@@ -95,6 +111,7 @@ public class Main {
 		    }
                      
 		    case 2:{
+		    	
 		    	System.out.println("\t\t  ___________________________________");
 				System.out.println("\t\t |                                   |");
 				System.out.println("\t\t |              Login                |");		

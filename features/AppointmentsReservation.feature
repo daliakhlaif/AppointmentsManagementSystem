@@ -66,8 +66,17 @@ Scenario: Schedueling Conflict
       When I add the appointment to the record 
       Then an error message should appear 
       
- Scenario: Schedueling Conflict
+Scenario: Schedueling Conflict
       Given given the patient "Sara Sameer" wants to book an appointment in "10-11-2022" at the doctor "Mohammed" , the appointment starts at "09:10" and ends at "09:30"
       When I add the appointment to the record 
-      Then an error message should appear          
-
+      Then an error message should appear  
+           
+Scenario: Delete Appointment 
+      Given given the patient "Basema Mohammad" wants to cancel his/her appointment 
+      When I delete the appointment  
+      Then it should be deleted from appointments list
+      
+Scenario: Edit Appointment 
+      Given given the patient "Basema Mohammad" wants to edit his/her appointment time to: "13:00" - "14:00"
+      When I edit the appointment  
+      Then it should be updated to the time "13:00" - "14:00"    
