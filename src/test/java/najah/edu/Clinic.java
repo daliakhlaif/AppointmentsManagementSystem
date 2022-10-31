@@ -195,5 +195,26 @@ public class Clinic {
     	
     	return 1;
      }
+     public boolean deleteAppointment(String name) {
+    	 
+    	 for(int i=0; i< this.appointments.size() ; i++) {
+    		 
+    		 if(name == this.appointments.get(i).getAssignedPatient().getName()) {
+    			 
+    			 this.appointments.remove(i);
+    			 for(int j=0; j <this.appointments.get(i).getAssignedPatient().getAppointments().size() ; j++) {
+    				 
+    				 if(this.appointments.get(i).getAssignedPatient().getAppointments().get(j).getAppointmentDate().isAfter(LocalDate.now())) {
+    					 this.appointments.get(i).getAssignedPatient().getAppointments().remove(j);
+    					 return true;
+    				 }
+    			 }
+    			
+    			 
+    		 }
+    	 }
+    	 
+    	 return false;
+     }
      
 }

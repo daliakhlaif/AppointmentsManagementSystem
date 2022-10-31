@@ -9,6 +9,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class AppointmentsSteps {
     
@@ -119,7 +121,7 @@ public class AppointmentsSteps {
 	@Given("the following upcoming appointments exist:")
 	public void the_following_upcoming_appointments_exist(DataTable appointments) {
 		
-		
+		Patient p = new Patient();
 		 List<List<String>> a = appointments.cells();
 	     
 		   ArrayList <Appointment> appoint = new ArrayList<Appointment>();
@@ -133,7 +135,7 @@ public class AppointmentsSteps {
 						 
 						 switch(j) {
 						 case 0: {  
-							
+							  p = myClinic.getPatient(a.get(i).get(j));
 						      app.setAssignedPatient(myClinic.getPatient(a.get(i).get(j)));break;
 						   }
 						 case 1: {
@@ -156,7 +158,7 @@ public class AppointmentsSteps {
 						 
 						 
 					 }
-					 
+					 p.addAppointment(app);
 					 appoint.add(app); 
 				}
 		     myClinic.setAppointments(appoint);
@@ -225,6 +227,60 @@ public class AppointmentsSteps {
 		System.out.println(r);
 		assertTrue(string ,r == -1 );
 	}
+    
+	@Given("given the patient {string} wants to cancel his\\/her appointment")
+	public void given_the_patient_wants_to_cancel_his_her_appointment(String pname) {
+		
+	  p =  myClinic.getPatient(pname);
+	}
 
-  
+	@When("I delete the appointment")
+	public void i_delete_the_appointment() {
+		System.out.println("Deleting appointment");
+	}
+   
+	
+	@Then("it should be deleted from appointments list")
+	public void it_should_be_deleted_from_appointments_list() {
+		assertTrue( myClinic.deleteAppointment(p.getName()));
+	
+	}
+    String time1 = null , time2 = null;
+    LocalDate da = null;
+    @Given("given the patient {string} wants to edit his\\/her appointment in {string} from {string} , {string}  to: {string} ,  {string}")
+    public void given_the_patient_wants_to_edit_his_her_appointment_in_from_to(String name, String date, String time0, String time, String stime, String endtime) {
+    	p = myClinic.getPatient(name);
+        da = LocalDate.of(Test.getYear(date),Test.getMonth(date) , Test.getDay(date));
+	     
+	    time1 = stime ;
+	    time2 = endtime;
+    }
+
+    
+   LocalTime start; 
+   LocalTime end;
+   Appointment a1 = new Appointment();
+	@When("I edit the appointment")
+	public void i_edit_the_appointment() {
+	    System.out.println("Updating appointment");
+	    for(Appointment app : p.getAppointments() ) {
+	    	if(app.getAppointmentDate().equals(da) && app.getAssignedPatient()==p)
+	    		app.setStartOfAppointment(Test.geHours(time1),Test.getMin(time1));
+	    	app.setStartOfAppointment(Test.geHours(time2),Test.getMin(time2));
+	    	start = app.getAppointmentStartTime();
+	    	end = app.getAppointmentEndTime();
+	    	a1 = app;
+	    }
+	
+	}
+
+	@Then("it should be updated to the time {string} , {string}")
+	public void it_should_be_updated_to_the_time(String time1, String time2) {
+	   
+	   
+	   assertTrue(a1.getAppointmentStartTime().equals(start)&& a1.getAppointmentEndTime().equals(end));
+	   
+	}
+	
+
 }

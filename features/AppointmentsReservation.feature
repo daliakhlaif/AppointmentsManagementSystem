@@ -72,11 +72,11 @@ Scenario: Schedueling Conflict
       Then an error message should appear  
            
 Scenario: Delete Appointment 
-      Given given the patient "Basema Mohammad" wants to cancel his/her appointment 
+      Given given the patient "Basema Mohammad" wants to cancel his/her appointment  
       When I delete the appointment  
       Then it should be deleted from appointments list
       
 Scenario: Edit Appointment 
-      Given given the patient "Basema Mohammad" wants to edit his/her appointment time to: "13:00" - "14:00"
+      Given given the patient "Basema Mohammad" wants to edit his/her appointment in "08-12-2022" from "12:00" , "13:00"  to: "13:00" ,  "14:00"
       When I edit the appointment  
-      Then it should be updated to the time "13:00" - "14:00"    
+      Then it should be updated to the time "13:00" , "14:00"    
