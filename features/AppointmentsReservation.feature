@@ -71,10 +71,10 @@ Scenario: Schedueling Conflict
       When I add the appointment to the record 
       Then an error message should appear  
            
-Scenario: Delete Appointment 
+/*Scenario: Delete Appointment 
       Given given the patient "Basema Mohammad" wants to cancel his/her appointment  
       When I delete the appointment  
-      Then it should be deleted from appointments list
+      Then it should be deleted from appointments list*/
       
 Scenario: Edit Appointment 
       Given given the patient "Basema Mohammad" wants to edit his/her appointment in "08-12-2022" from "12:00" , "13:00"  to: "13:00" ,  "14:00"
