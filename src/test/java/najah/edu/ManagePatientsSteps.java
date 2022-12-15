@@ -77,7 +77,7 @@ public class ManagePatientsSteps {
 
 	@Then("I should see it changed to {string}")
 	public void i_should_see_it_changed_to(String change) {
-	    assertEquals(res,change);
+	    assertTrue(res.equals(change));
 	}
 
 	@Given("I want to change phone number for patient {string} to {string}")
@@ -128,7 +128,7 @@ public class ManagePatientsSteps {
 	
 	@Then("patient {string} is added to the list of patients")
 	public void patient_is_added_to_the_list_of_patients(String string) {
-		assertNotNull(myClinic.getPatient(string));
+		assertTrue(myClinic.getPatient(string) != null);
 	}
 	
 	@Given("the patient with name {string}")
@@ -146,7 +146,7 @@ public class ManagePatientsSteps {
 	
 	@Then("patient {string} is deleted from the list of patients")
 	public void patient_is_deleted_from_the_list_of_patients(String string) {
-	    assertNull(myClinic.getPatient(s) );
+	    assertTrue(myClinic.getPatient(s) == null );
 	}
 }
 
