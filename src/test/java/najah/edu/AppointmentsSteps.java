@@ -228,7 +228,7 @@ public class AppointmentsSteps {
 		assertTrue(string ,r == -1 );
 	}
     
-	@Given("given the patient {string} wants to cancel his\\/her appointment")
+	/*@Given("given the patient {string} wants to cancel his\\/her appointment")
 	public void given_the_patient_wants_to_cancel_his_her_appointment(String pname) {
 		
 	  p =  myClinic.getPatient(pname);
@@ -244,7 +244,7 @@ public class AppointmentsSteps {
 	public void it_should_be_deleted_from_appointments_list() {
 		assertTrue( myClinic.deleteAppointment(p.getName()));
 	
-	}
+	}*/
     String time1 = null , time2 = null;
     LocalDate da = null;
     @Given("given the patient {string} wants to edit his\\/her appointment in {string} from {string} , {string}  to: {string} ,  {string}")
