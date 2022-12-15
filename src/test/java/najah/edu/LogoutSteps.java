@@ -24,6 +24,6 @@ public class LogoutSteps {
 	public void the_user_should_return_to_main_page() {
 	   int res =0;
 	   if((log.getLogU()== null) && (log.getLogP()==null))res = 1;
-		Assert.assertSame(res, 1);
+		assertSame(res, 1);
 	}
 }
