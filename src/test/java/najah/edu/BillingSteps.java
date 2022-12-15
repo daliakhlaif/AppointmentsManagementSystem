@@ -1,6 +1,6 @@
 package najah.edu;
 
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class BillingSteps {
 	@Then("user get {string}")
 	public void userGet(String string) {
 	
-		 assertSame(bill.calculateTotalPrice(), Double.parseDouble(string));
+		 assertTrue(bill.calculateTotalPrice() == Double.parseDouble(string));
 	
 	}
 	
@@ -80,7 +80,7 @@ public class BillingSteps {
 	
 	@Then("the total price should be  {string}")
 	public void theTotalPriceShouldBe(String total) {
-	 assertSame(bill.calculateTotalPrice(), Double.parseDouble(total));
+	 assertTrue(bill.calculateTotalPrice()== Double.parseDouble(total));
   	
 
 		
