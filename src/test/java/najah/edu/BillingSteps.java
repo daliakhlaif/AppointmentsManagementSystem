@@ -59,10 +59,8 @@ public class BillingSteps {
 	
 	@Then("user get {string}")
 	public void userGet(String string) {
-	Double a = bill.calculateTotalPrice();
-	 Double b = Double.parseDouble(string);
-		assertSame(a,b);
-		
+	
+		 assertSame(bill.calculateTotalPrice(), Double.parseDouble(string));
 	
 	}
 	
@@ -82,9 +80,7 @@ public class BillingSteps {
 	
 	@Then("the total price should be  {string}")
 	public void theTotalPriceShouldBe(String total) {
-		Double a = bill.calculateTotalPrice();
-	 Double b = Double.parseDouble(total);
-		assertSame(a,b);
+	 assertSame(bill.calculateTotalPrice()== Double.parseDouble(total));
   	
 
 		
