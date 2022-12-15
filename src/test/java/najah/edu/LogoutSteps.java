@@ -1,6 +1,6 @@
 package najah.edu;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertSame;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
