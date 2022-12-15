@@ -1,6 +1,6 @@
 package najah.edu;
 
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
@@ -209,14 +209,14 @@ public class AppointmentsSteps {
 	    	 System.out.println(a1);
 	     }
 		
-	    assertSame("Choose another time",r == -1 );
+	    assertEquals("Choose another time",r == -1 );
 	    
 	}
 	@Then("an error message should appear {string}")
 	public void an_error_message_should_appear(String string) {
 		r = myClinic.addAppointment(a);
 		System.out.println(r);
-		assertSame(string ,r == -1 );
+		assertEquals(string ,r == -1 );
 	}
     
 	
