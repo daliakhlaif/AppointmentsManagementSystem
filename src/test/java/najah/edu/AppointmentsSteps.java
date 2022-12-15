@@ -1,7 +1,7 @@
 package najah.edu;
 
 import static org.junit.Assert.assertSame;
-
+import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 import io.cucumber.datatable.DataTable;
