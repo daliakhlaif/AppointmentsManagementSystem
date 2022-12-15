@@ -85,7 +85,7 @@ public class BillingSteps {
 		Double a = bill.calculateTotalPrice();
 	 Double b = Double.parseDouble(total);
 		assertSame(a,b);
-  //  assertSame(bill.calculateTotalPrice()== Double.parseDouble(total));	
+  	
 
 		
 
