@@ -53,7 +53,7 @@ public class NoteSteps {
 	@Then("he can add a note on the visit")
 	public void he_can_add_a_note_on_the_visit() {
 	   System.out.println("Enter your note: ");
-	   String n = scan.next();
+	   String n = "thank you";
 	   Note note = new Note();
 	   note.setAssignedPatient(myClinic.getPatient(name));
 	   note.setNoteText(n);
