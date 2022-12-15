@@ -23,7 +23,8 @@ public class LogoutSteps {
 	@Then("the user should return to main page")
 	public void the_user_should_return_to_main_page() {
 	   int res =0;
+		int exp=1;
 	   if((log.getLogU()== null) && (log.getLogP()==null))res = 1;
-		assertSame(res, 1);
+		assertSame(res, exp);
 	}
 }
