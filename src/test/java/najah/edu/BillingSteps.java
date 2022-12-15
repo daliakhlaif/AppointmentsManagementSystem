@@ -80,7 +80,7 @@ public class BillingSteps {
 	
 	@Then("the total price should be  {string}")
 	public void theTotalPriceShouldBe(String total) {
-	 assertSame(bill.calculateTotalPrice()== Double.parseDouble(total));
+	 assertSame(bill.calculateTotalPrice(), Double.parseDouble(total));
   	
 
 		
