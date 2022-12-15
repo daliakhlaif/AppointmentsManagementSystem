@@ -31,10 +31,7 @@ And the following upcoming appointments exist:
  
  
    
-Scenario: Booking Appointment Successfully
-      Given given the patient "Sara Sameer" wants to book an appointment in "08-12-2022" at the doctor "Ali" , the appointment starts at "17:15" and ends at "17:30"
-      When I add the appointment to the record 
-      Then the patient appointment should be booked successfully
+
  
 Scenario: Schedueling Conflict
       Given given the patient "Sara Sameer" wants to book an appointment in "10-11-2022" at the doctor "Mohammed" , the appointment starts at "09:15" and ends at "09:30"
