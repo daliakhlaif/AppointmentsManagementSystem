@@ -1,6 +1,6 @@
 package najah.edu;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
@@ -54,11 +54,12 @@ public class RegistrationSteps {
 		   r.setPassword(pass1);
 	   }
 	   int res = 0;
+	   int b = 1;
 	   r.setPhone(phone);
 	   if((r.getEmail()!=null) && (r.getPassword()!=null) && (r.getPhoneNo()!= null)) {
 		   res =1;
 	   }
-	   assertTrue(res == 1);
+	   assertEquals(res , b);
 	}
 	
 	@Then("I should see an error message")
@@ -67,11 +68,12 @@ public class RegistrationSteps {
 			   r.setPassword(pass1);
 		   }
 		   int res = 0;
+		   int exp =0 ;
 		   r.setPhone(phone);
 		   if((r.getEmail()!=null) && (r.getPassword()!=null) && (r.getPhoneNo()!= null)) {
 			   res =1;
 		   }
-		   assertTrue(res == 0);
+		   assertEquals(res , exp);
 	}
 	
 }
