@@ -2,7 +2,7 @@ package najah.edu;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -206,7 +206,7 @@ public class ServicSteps {
 	
 	@Then("the service provider should be editted to {string}")
 	public void the_service_provider_should_be_editted_to(String company) {
-	  assertTrue(s.getProvider().equals(company));
+	  assertEquals(s.getProvider(),company);
 	}
 	@When("I edit the price to {string}")
 	public void i_edit_the_price_to(String price) {
@@ -214,6 +214,6 @@ public class ServicSteps {
 	}
 	@Then("the price should be editted to {string}")
 	public void the_price_should_be_editted_to(String price) {
-	    assertTrue(myClinic.getServiceByName(s.getName()).getPrice()== Double.parseDouble(price));
+	    assertEquals(myClinic.getServiceByName(s.getName()).getPrice(),Double.parseDouble(price));
 	}
 }
