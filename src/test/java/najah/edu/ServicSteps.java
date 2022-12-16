@@ -214,6 +214,8 @@ public class ServicSteps {
 	}
 	@Then("the price should be editted to {string}")
 	public void the_price_should_be_editted_to(String price) {
-	    assertEquals(myClinic.getServiceByName(s.getName()).getPrice(),Double.parseDouble(price));
+		Double A = myClinic.getServiceByName(s.getName()).getPrice();
+		Double B = Double.parseDouble(price);
+	    assertEquals(A,B);
 	}
 }
