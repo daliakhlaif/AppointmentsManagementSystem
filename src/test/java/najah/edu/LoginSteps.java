@@ -2,7 +2,8 @@ package najah.edu;
 
 
 import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import java.util.ArrayList;
 import java.util.List;
 import io.cucumber.datatable.DataTable;
@@ -73,13 +74,13 @@ public class LoginSteps {
     	d = 2;
      else if (page.equals("doctor"))	 
     	d = 1;
-	   assertTrue(log.loginResultPage() == d);
+	   assertEquals(log.loginResultPage() , d);
 	}
 	
 	@Then("The user should get the message {string}")
 	public void the_user_should_get_the_message(String string) {
 		System.out.println(string);
-		assertTrue(log.loginResult() == null);
+		assertNull(log.loginResult());
 	}
 
 
