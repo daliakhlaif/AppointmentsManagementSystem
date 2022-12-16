@@ -1,7 +1,7 @@
 package najah.edu;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
 import java.util.ArrayList;
 import java.util.List;
 import io.cucumber.datatable.DataTable;
@@ -197,16 +197,7 @@ public class AppointmentsSteps {
               
 	}
 
-	@Then("the patient appointment should be booked successfully")
-	public void the_patient_appointment_should_be_booked_successfully() {
-		
-		r = myClinic.addAppointment(a);
-	//	System.out.println(r);
-	    assertTrue(" Appointment Booked ", r == 1);
-	    System.out.println(a);
-	   
-	    
-	}
+	
 	
 	@Then("an error message should appear")
 	public void an_error_message_should_appear() {
@@ -218,33 +209,17 @@ public class AppointmentsSteps {
 	    	 System.out.println(a1);
 	     }
 		
-	    assertTrue("Choose another time",r == -1 );
+	    assertEquals("Choose another time",r == -1 );
 	    
 	}
 	@Then("an error message should appear {string}")
 	public void an_error_message_should_appear(String string) {
 		r = myClinic.addAppointment(a);
 		System.out.println(r);
-		assertTrue(string ,r == -1 );
+		assertEquals(string ,r == -1 );
 	}
     
-	@Given("given the patient {string} wants to cancel his\\/her appointment")
-	public void given_the_patient_wants_to_cancel_his_her_appointment(String pname) {
-		
-	  p =  myClinic.getPatient(pname);
-	}
-
-	@When("I delete the appointment")
-	public void i_delete_the_appointment() {
-		System.out.println("Deleting appointment");
-	}
-   
 	
-	@Then("it should be deleted from appointments list")
-	public void it_should_be_deleted_from_appointments_list() {
-		assertTrue( myClinic.deleteAppointment(p.getName()));
-	
-	}
     String time1 = null , time2 = null;
     LocalDate da = null;
     @Given("given the patient {string} wants to edit his\\/her appointment in {string} from {string} , {string}  to: {string} ,  {string}")
