@@ -45,5 +45,17 @@
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
 </properties>
-
+<build>
+  <sourceDirectory>src/main/java</sourceDirectory>
+  <testsourceDirectory>src/test/java</testsourceDirectory>
+  <pluginManagement>
+    <plugins>
+        <plugin>
+           <groupId>org.sonarsource.scanner.maven</groupId>
+          <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.7.0.1746</version>
+          </plugin>
+    </plugins>
+    </pluginManagement>
+</build>
 </project>
