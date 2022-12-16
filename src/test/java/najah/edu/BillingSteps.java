@@ -1,7 +1,7 @@
 package najah.edu;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.Equals;
+import static org.junit.Assert.assertEquals;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
