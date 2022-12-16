@@ -209,14 +209,14 @@ public class AppointmentsSteps {
 	    	 System.out.println(a1);
 	     }
 		
-	    assertEquals("Choose another time",r == -1 );
+	    assertTrue("Choose another time",r == -1 );
 	    
 	}
 	@Then("an error message should appear {string}")
 	public void an_error_message_should_appear(String string) {
 		r = myClinic.addAppointment(a);
 		System.out.println(r);
-		assertEquals(string ,r == -1 );
+		assertTrue(string ,r == -1 );
 	}
     
 	
