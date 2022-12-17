@@ -2,6 +2,7 @@ package najah.edu;
 
 import static org.junit.Assert.assertTrue;
 
+import static org.junit.Assert.assertSame;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -60,7 +61,7 @@ public class NoteSteps {
 	   note.setVisits(myClinic.getPatient(name).getVisits());
 	   myClinic.getPatient(name).addNote(note);
 	   
-	   assertTrue( myClinic.getPatient(name).getNotes().get(0) == note);
+	   assertSame( myClinic.getPatient(name).getNotes().get(0) , note);
 	}
 	
 	@When("the patient {string} doesn't arrive at the clinic")
@@ -70,6 +71,6 @@ public class NoteSteps {
 
 	@Then("he can't add a note on the visit")
 	public void he_can_t_add_a_note_on_the_visit() {
-	   assertTrue(myClinic.getPatient(name).getVisits() == 0);
+	   assertSame(myClinic.getPatient(name).getVisits() , 0);
 	}
 }
