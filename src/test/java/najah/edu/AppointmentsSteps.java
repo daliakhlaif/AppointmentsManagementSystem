@@ -217,7 +217,8 @@ public class AppointmentsSteps {
 	public void an_error_message_should_appear(String string) {
 		r = myClinic.addAppointment(a);
 		System.out.println(r);
-		assertSame(string ,r==-1);
+		
+		assertTrue(string ,r==-1);
 	}
     
 	
