@@ -1,6 +1,7 @@
 package najah.edu;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
@@ -216,7 +217,7 @@ public class AppointmentsSteps {
 	public void an_error_message_should_appear(String string) {
 		r = myClinic.addAppointment(a);
 		System.out.println(r);
-		assertTrue(string ,assertEquals(r,-1));
+		assertSame(string ,r==-1);
 	}
     
 	
