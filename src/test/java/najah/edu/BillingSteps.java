@@ -60,7 +60,7 @@ public class BillingSteps {
 	@Then("user get {string}")
 	public void userGet(String string) {
 	
-	assertTrue( bill.calculateTotalPrice() ,  Double.parseDouble(string)):
+	assertTrue( bill.calculateTotalPrice() ,  Double.parseDouble(string));
 	}
 	
 	@When("The user purchases {string} and {string}")
@@ -80,7 +80,7 @@ public class BillingSteps {
 	@Then("the total price should be  {string}")
 	public void theTotalPriceShouldBe(String total) {
 		
-		assertTrue( bill.calculateTotalPrice() ,  Double.parseDouble(total)):
+		assertTrue( bill.calculateTotalPrice() ,  Double.parseDouble(total));
   	
 
 		
