@@ -210,7 +210,7 @@ public class AppointmentsSteps {
 	    	 System.out.println(a1);
 	     }
 		
-	    assertTrue("Choose another time",r == -1 );
+	    assertEquals(r , -1 );
 	    
 	}
 	@Then("an error message should appear {string}")
@@ -218,7 +218,7 @@ public class AppointmentsSteps {
 		r = myClinic.addAppointment(a);
 		System.out.println(r);
 		
-		assertTrue(string ,r==-1);
+		assertEquals(r,-1);
 	}
     
 	
