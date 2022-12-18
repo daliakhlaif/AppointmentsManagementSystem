@@ -59,8 +59,9 @@ public class BillingSteps {
 	
 	@Then("user get {string}")
 	public void userGet(String string) {
-	
-	assertTrue(Service.getPrice() ==  Double.parseDouble(string));
+	double a =  bill.calculateTotalPrice();
+	double b =  Double.parseDouble(string);
+	assertEquals( a,b );
 	}
 	
 	@When("The user purchases {string} and {string}")
