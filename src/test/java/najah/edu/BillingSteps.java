@@ -1,7 +1,7 @@
 package najah.edu;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +61,7 @@ public class BillingSteps {
 	public void userGet(String string) {
 	double a =  bill.calculateTotalPrice();
 	double b =  Double.parseDouble(string);
-	assertEquals(double a,double b);
+	assertSame( a, b);
 	}
 	
 	@When("The user purchases {string} and {string}")
