@@ -71,6 +71,6 @@ public class NoteSteps {
 
 	@Then("he can't add a note on the visit")
 	public void he_can_t_add_a_note_on_the_visit() {
-	   assertSame(myClinic.getPatient(name).getVisits() , 0);
+	   assertSame(0 , myClinic.getPatient(name).getVisits());
 	}
 }
