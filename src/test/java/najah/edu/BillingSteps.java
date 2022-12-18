@@ -61,7 +61,7 @@ public class BillingSteps {
 	public void userGet(String string) {
 	double a =  bill.calculateTotalPrice();
 	double b =  Double.parseDouble(string);
-	assertEquals(double a,double b)
+	assertEquals(double a,double b);
 	}
 	
 	@When("The user purchases {string} and {string}")
