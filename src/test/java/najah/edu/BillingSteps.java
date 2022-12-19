@@ -59,12 +59,9 @@ public class BillingSteps {
 	
 	@Then("user get {string}")
 	public void userGet(String string) {
-		double a = bill.calculateTotalPrice();
-		double b = Double.parseDouble(string);
-		if (a==b)
-			int r =1;
-		else r =0;
-		assertEquals(r,1);
+		 Double actual= bill.calculateTotalPrice() ;
+	         Double expected = Double.parseDouble(string) ;
+		assertEquals(actual, expected );
 	}
 	
 	@When("The user purchases {string} and {string}")
@@ -84,12 +81,9 @@ public class BillingSteps {
 	@Then("the total price should be  {string}")
 	public void theTotalPriceShouldBe(String total) {
 		
-		double a = bill.calculateTotalPrice();
-		double b = Double.parseDouble(total);
-		if (a==b)
-			int r =1;
-		else r =0;
-		assertEquals(r,1);
+		 Double actual= bill.calculateTotalPrice();
+		 Double expected = Double.parseDouble(total);
+		 assertEquals(actual, expected) ;
   	
 
 		
