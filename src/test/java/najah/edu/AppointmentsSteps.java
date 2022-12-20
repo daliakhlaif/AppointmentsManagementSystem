@@ -198,7 +198,18 @@ public class AppointmentsSteps {
               
 	}
 
-	
+	@Then("the patient appointment should be booked successfully")
+	public void the_patient_appointment_should_be_booked_successfully() {
+		
+		r = myClinic.addAppointment(a);
+
+		Integer actual = r;
+		Integer  expected= 1;
+	    assertEquals(  expected,actual);
+	    System.out.println(a);
+	   
+	    
+	}
 	
 	@Then("an error message should appear")
 	public void an_error_message_should_appear() {
