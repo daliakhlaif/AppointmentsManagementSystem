@@ -101,7 +101,7 @@ public class Main {
                 
                 System.out.println(" Enter Date of Birth (in the form => dd-mm-yyyy) : ");
                 String dob = s.next();
-                p.setDOB(Test.getYear(dob), Test.getMonth(dob), Test.getDay(dob));
+                p.setDOB(Function.getYear(dob), Function.getMonth(dob), Function.getDay(dob));
                 
                 
                 p.setVisits(0);
