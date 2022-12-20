@@ -59,13 +59,12 @@ public class BillingSteps {
 	
 	@Then("user get {string}")
 	public void userGet(String string) {
-		int b;
+		
 		 Double actual= bill.calculateTotalPrice() ;
 	         Double expected = Double.parseDouble(string) ;
-		if(actual == expected)
-			 b = 1;
-		else b =0;
-		 assertEquals(b,1) ;
+		int value1 = (int)Math.round(actual);
+		int value2 = (int)Math.round(expected);
+		 assertEquals(value1,value2) ;
 	}
 	
 	@When("The user purchases {string} and {string}")
@@ -84,13 +83,12 @@ public class BillingSteps {
 	
 	@Then("the total price should be  {string}")
 	public void theTotalPriceShouldBe(String total) {
-		int r;
+		
 		 Double actual= bill.calculateTotalPrice();
 		 Double expected = Double.parseDouble(total);
-		if(actual == expected)
-			 r = 1;
-		else r =0;
-		 assertEquals(r,1) ;
+	        int value1 = (int)Math.round(actual);
+		int value2 = (int)Math.round(expected);
+		 assertEquals(value1,value2) ;
   	
 
 		
