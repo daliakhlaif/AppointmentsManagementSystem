@@ -44,7 +44,7 @@ public class ManagePatientsSteps {
 			   
 			   case 0: p.setFirstName(info.get(i).get(j));break;
 			   case 1: p.setLastName(info.get(i).get(j)); p.setName( info.get(i).get(j-1)+" "+ p.getLastName());break;
-			   case 2: p.setDOB(Test.getYear(info.get(i).get(j)), Test.getMonth(info.get(i).get(j)), Test.getDay(info.get(i).get(j)));break;
+			   case 2: p.setDOB(Function.getYear(info.get(i).get(j)), Function.getMonth(info.get(i).get(j)), Function.getDay(info.get(i).get(j)));break;
 			   case 3: p.getAssociatedReg().setEmail(info.get(i).get(j));break;
 			   case 4: p.getAssociatedReg().setUserName(info.get(i).get(j));break;
 			   case 5: p.setPhone(info.get(i).get(j));break;
@@ -108,14 +108,14 @@ public class ManagePatientsSteps {
 	public void i_should_see_the_user_s_first_name_last_name_date_of_birth_gender_email_phone_number_and_city(String f, String l, String dob, String g, String e, String ph, String c) {
 		  
 		
-		LocalDate d = LocalDate.of(Test.getYear(dob), Test.getMonth(dob), Test.getDay(dob));
+		LocalDate d = LocalDate.of(Function.getYear(dob), Function.getMonth(dob), Function.getDay(dob));
 	   assertTrue((p.getFirstName().equals(f)) && (p.getLastName().equals(l))&&(p.getDOB().equals(d)) && (p.getGender().equals(g)) && (p.getPhoneNo().equals(ph))&& p.getAssociatedReg().getEmail().equals(e));             
 	}
 	Patient pa = new Patient();
 	@Given("the patient with first name {string} and last name {string} with email address {string} ,date of birth {string} phone number {string} ,gender {string} username {string} and city {string}")
 	public void the_patient_with_first_name_and_last_name_with_email_address_date_of_birth_phone_number_gender_username_and_city(String fname,String lname, String e, String dob, String ph, String g, String uname, String c) {
 	   pa.setFirstName(fname);pa.setLastName(lname);
-	   pa.setName(fname+ " "+lname);pa.setAddress(c);pa.setGender(g);pa.setDOB(Test.getYear(dob),Test.getMonth(dob), Test.getDay(dob));pa.setPhone(ph);
+	   pa.setName(fname+ " "+lname);pa.setAddress(c);pa.setGender(g);pa.setDOB(Function.getYear(dob),Function.getMonth(dob), Function.getDay(dob));pa.setPhone(ph);
 	   Registration reg = new Registration();
 	   reg.setStatus(2);reg.setEmail(e);reg.setUserName(uname);pa.setAssociatedReg(reg);
 	   
