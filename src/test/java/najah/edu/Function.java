@@ -1,6 +1,6 @@
 package najah.edu;
 
-public class Test {
+public class Function {
 	
 	
 	public static int getYear(String string) {
