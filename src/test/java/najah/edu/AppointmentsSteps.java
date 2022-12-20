@@ -40,8 +40,8 @@ public class AppointmentsSteps {
 		day.add(DayOfWeek.WEDNESDAY);
 		day.add(DayOfWeek.THURSDAY);
 	    myClinic.setWorkingTimes(day);
-	    myClinic.setOpenTime(Test.geHours(open), Test.getMin(open));
-	    myClinic.setCloseTime(Test.geHours(close), Test.getMin(close));
+	    myClinic.setOpenTime(Function.geHours(open), Function.getMin(open));
+	    myClinic.setCloseTime(Function.geHours(close), Function.getMin(close));
 	}
 	
 
@@ -104,7 +104,7 @@ public class AppointmentsSteps {
 				 case 0: patient.setName(p.get(i).get(j));break;
 				 case 1:  {
 					 
-					 patient.setDOB(Test.getYear(p.get(i).get(j)),Test.getMonth(p.get(i).get(j)), Test.getDay(p.get(i).get(j)));
+					 patient.setDOB(Function.getYear(p.get(i).get(j)),Function.getMonth(p.get(i).get(j)), Function.getDay(p.get(i).get(j)));
 			         break;
 				 }
 				         
@@ -140,7 +140,7 @@ public class AppointmentsSteps {
 						      app.setAssignedPatient(myClinic.getPatient(a.get(i).get(j)));break;
 						   }
 						 case 1: {
-							 app.setAppointmentDate(Test.getYear(a.get(i).get(j)), Test.getMonth(a.get(i).get(j)), Test.getDay(a.get(i).get(j))); break;
+							 app.setAppointmentDate(Function.getYear(a.get(i).get(j)), Function.getMonth(a.get(i).get(j)), Function.getDay(a.get(i).get(j))); break;
 							
 						 }
 					
@@ -150,10 +150,10 @@ public class AppointmentsSteps {
 						 
 						
 						 case 3: {
-								app.setStartOfAppointment(Test.geHours(a.get(i).get(j)), Test.getMin(a.get(i).get(j)));break;
+								app.setStartOfAppointment(Function.geHours(a.get(i).get(j)), Function.getMin(a.get(i).get(j)));break;
 							 }
 						 case 4: {
-								app.setEndOfAppointment(Test.geHours(a.get(i).get(j)), Test.getMin(a.get(i).get(j)));break;
+								app.setEndOfAppointment(Function.geHours(a.get(i).get(j)), Function.getMin(a.get(i).get(j)));break;
 							 }
 						 }
 						 
@@ -176,11 +176,11 @@ public class AppointmentsSteps {
 	public void given_the_patient_wants_to_book_an_appointment_in_at_the_doctor_the_appointment_starts_at_and_ends_at(String name, String date, String dname, String startTime, String endTime) {
         
  
-		a.setAppointmentDate(Test.getYear(date),Test.getMonth(date),Test.getDay(date));
-		a.setStartOfAppointment(Test.geHours(startTime), Test.getMin(startTime));
+		a.setAppointmentDate(Function.getYear(date),Function.getMonth(date),Function.getDay(date));
+		a.setStartOfAppointment(Function.geHours(startTime), Function.getMin(startTime));
 		
 		
-		a.setEndOfAppointment(Test.geHours(endTime), Test.getMin(endTime));
+		a.setEndOfAppointment(Function.geHours(endTime), Function.getMin(endTime));
 		a.setAssignedPatient( myClinic.getPatient(name));
 		
 		
@@ -227,7 +227,7 @@ public class AppointmentsSteps {
     @Given("given the patient {string} wants to edit his\\/her appointment in {string} from {string} , {string}  to: {string} ,  {string}")
     public void given_the_patient_wants_to_edit_his_her_appointment_in_from_to(String name, String date, String time0, String time, String stime, String endtime) {
     	p = myClinic.getPatient(name);
-        da = LocalDate.of(Test.getYear(date),Test.getMonth(date) , Test.getDay(date));
+        da = LocalDate.of(Function.getYear(date),Function.getMonth(date) , Function.getDay(date));
 	     
 	    time1 = stime ;
 	    time2 = endtime;
@@ -242,8 +242,8 @@ public class AppointmentsSteps {
 	    System.out.println("Updating appointment");
 	    for(Appointment app : p.getAppointments() ) {
 	    	if(app.getAppointmentDate().equals(da) && app.getAssignedPatient()==p)
-	    		app.setStartOfAppointment(Test.geHours(time1),Test.getMin(time1));
-	    	app.setStartOfAppointment(Test.geHours(time2),Test.getMin(time2));
+	    		app.setStartOfAppointment(Function.geHours(time1),Function.getMin(time1));
+	    	app.setStartOfAppointment(Function.geHours(time2),Function.getMin(time2));
 	    	start = app.getAppointmentStartTime();
 	    	end = app.getAppointmentEndTime();
 	    	a1 = app;
