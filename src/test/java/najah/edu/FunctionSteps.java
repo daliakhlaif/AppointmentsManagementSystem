@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 
 public class FunctionSteps {
 	
-    Test t = new Test();
+    Function t = new Function();
     String str;
 	@When("we enter the year {string}")
 	public void we_enter_the_year(String string) {
